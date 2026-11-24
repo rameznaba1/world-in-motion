@@ -137,7 +137,7 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .site-nav a:hover, .site-nav a[aria-current] { color: var(--gold); text-decoration: underline; }
 .menu-button { display: none; min-height: 2.75rem; border: 1px solid #9c7954; background: transparent; padding: 0.25rem 0.8rem; }
-.masthead :focus-visible, .hero :focus-visible, .history-section :focus-visible, .closing :focus-visible, .footer :focus-visible {
+.masthead :focus-visible, .hero :focus-visible, .history-section :focus-visible, .footer :focus-visible {
   outline-color: #efc18b;
 }
 
@@ -221,7 +221,7 @@ img { display: block; max-width: 100%; height: auto; }
 .hero-figure figcaption span, .footer span { padding-inline: 0.25em; }
 
 .question { text-align: center; padding-block: 4.6rem 4.9rem; }
-.question h2, .section-heading h2, .closing h2 { margin-top: 0.58rem; font-size: clamp(2.25rem, 4.65vw, 4.35rem); letter-spacing: -0.045em; }
+.question h2, .section-heading h2 { margin-top: 0.58rem; font-size: clamp(2.25rem, 4.65vw, 4.35rem); letter-spacing: -0.045em; }
 .question > p:last-child { max-width: 65ch; margin: 1.25rem auto 0; color: var(--soft-ink); }
 .gallery { padding-block: clamp(3.65rem, 7vw, 6.35rem); }
 .paper-deep { background: var(--paper-2) var(--paper-grain); border-block: 1px solid #ccb99b; }
@@ -348,10 +348,7 @@ img { display: block; max-width: 100%; height: auto; }
 .credits-notes .button { margin-top: 0.95rem; }
 .course-note { border-left: 2px solid var(--rust); padding-left: 1rem; margin-top: 1.25rem; color: var(--soft-ink); }
 
-.closing { padding-block: 3.1rem; background: #493326 var(--paper-grain); color: var(--light); }
-.closing .kicker { color: var(--gold); }
-.closing-inner, .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; flex-wrap: wrap; }
-.closing h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; flex-wrap: wrap; }
 .footer { background: var(--ink); color: var(--muted-light); padding-block: 1.25rem; font-size: 0.875rem; }
 .footer-inner > div { display: flex; flex-wrap: wrap; gap: 1rem; }
 
@@ -363,24 +360,125 @@ img { display: block; max-width: 100%; height: auto; }
 .statement-copy { border-block: 3px double var(--line); padding-block: 1.7rem; }
 .statement-copy p + p { margin-top: 1.15rem; }
 .statement .button { margin-top: 1.4rem; }
-.quiz-layout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); align-items: center; gap: clamp(2.5rem, 6vw, 6rem); }
-.quiz-layout .button { margin-top: 1.1rem; }
-.quiz-copy > p:not(.kicker) { max-width: 52ch; color: var(--soft-ink); }
-.qr-card { padding: clamp(1.25rem, 3vw, 2.5rem); border: 1px solid var(--line); background: #f9efd9 var(--paper-grain); text-align: center; box-shadow: 0 0.85rem 2rem #56382126; }
-.qr-empty {
+.motion-studio, .rhythm-lab {
   display: grid;
-  place-content: center;
-  aspect-ratio: 1;
-  width: min(100%, 17rem);
-  margin-inline: auto;
-  padding: 1rem;
-  border: 2px dashed #9c7152;
-  color: var(--rust-dark);
-  font: 600 1.35rem/1.25 var(--serif);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  border: 1px solid var(--line);
+  background: #fbf1de var(--paper-grain);
 }
-.qr-empty span { display: block; margin-top: 0.45rem; font: 650 0.875rem/1.3 var(--sans); }
-.qr-image { width: min(100%, 18rem); margin-inline: auto; image-rendering: pixelated; }
-.qr-card figcaption { margin-top: 0.9rem; font-size: 0.875rem; color: var(--soft-ink); }
+.motion-studio { margin-top: 1.5rem; }
+.motion-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  background: var(--ink);
+  color: var(--light);
+}
+.motion-screen canvas {
+  display: block;
+  width: 100%;
+  max-height: 25rem;
+  aspect-ratio: 68 / 33;
+  object-fit: contain;
+}
+.motion-screen figcaption {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.6rem 1rem 1rem;
+  font-size: 0.88rem;
+  color: var(--muted-light);
+}
+.motion-notes, .game-controls { min-width: 0; padding: clamp(1rem, 3vw, 2.25rem); }
+.motion-notes h3 { font-size: clamp(1.65rem, 3vw, 2.6rem); margin-block: 0.4rem 0.55rem; }
+#preview-step { margin-block: 0.75rem; color: var(--rust-dark); font-weight: 750; }
+.study-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.source-link { display: inline-block; margin-top: 0.65rem; color: var(--rust-dark); font-size: 0.9rem; font-weight: 700; }
+.study-controls .source-link { margin-block: 0; }
+.archive-note { color: var(--soft-ink); font-size: 0.88rem; }
+
+.history-clip {
+  margin-top: 1rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid #79634e;
+  background: #332b23;
+}
+.history-clip summary { cursor: pointer; color: var(--gold); font-weight: 700; }
+.history-clip p { margin-top: 0.6rem; font-size: 0.94rem; }
+.media-player:not(:empty) { margin-top: 0.75rem; max-width: 46rem; }
+.media-player iframe, .media-player video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  background: #191612;
+}
+
+.rhythm-section { background: #f7ebd6 var(--paper-grain); }
+.game-options { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 0.65rem; }
+.game-options label { display: grid; gap: 0.15rem; font-weight: 700; font-size: 0.88rem; }
+.game-options select {
+  width: 100%;
+  min-height: 2.75rem;
+  border: 1px solid var(--line);
+  background: #fff7e9;
+  color: var(--ink);
+  padding: 0.25rem;
+  font: inherit;
+}
+#game-instructions { margin-top: 0.75rem; }
+.beat-lane {
+  position: relative;
+  height: 2.8rem;
+  overflow: hidden;
+  margin-top: 1rem;
+  border-radius: 0.2rem;
+  background: #3d3227;
+}
+.beat-target, .beat-note {
+  position: absolute;
+  top: 50%;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.beat-target { left: 50%; border: 2px solid #f6dfbb; width: 1.45rem; height: 1.45rem; }
+.beat-note { background: #e8a967; }
+.game-readout, .quiz-toolbar { display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; gap: 0.45rem 1rem; }
+.game-readout { margin-top: 0.45rem; font-weight: 750; }
+.game-readout p { margin: 0; }
+.game-feedback { color: var(--rust-dark); min-height: 2rem; margin-top: 0.55rem; }
+.game-actions { margin-top: 0.25rem; }
+
+.quiz-toolbar { margin-bottom: 1.25rem; font-weight: 750; }
+.quiz-questions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.quiz-question {
+  min-width: 0;
+  margin: 0;
+  padding: 0.85rem clamp(0.85rem, 3vw, 1.4rem) 1rem;
+  background: #fbf1de var(--paper-grain);
+  border: 1px solid var(--line);
+}
+.quiz-question legend { padding: 0 0.35rem; font: 700 1.14rem/1.4 var(--serif); }
+.quiz-options { display: grid; gap: 0.45rem; }
+.quiz-options button {
+  min-height: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  background: #fff8eb;
+  color: var(--ink);
+  border: 1px solid #9c8265;
+  text-align: left;
+  cursor: pointer;
+}
+.quiz-options button:not([aria-disabled="true"]):hover { background: #f2d9bc; }
+.quiz-options button[aria-disabled="true"] { cursor: default; }
+.quiz-options button.is-correct { border: 2px solid #43664d; background: #e5efde; }
+.quiz-options button.is-incorrect { border: 2px solid #983f33; background: #f6e0d9; }
+.quiz-response { font-size: 0.93rem; font-weight: 650; }
+.quiz-response:not(:empty) { margin-top: 0.75rem; }
 
 @media (max-width: 62rem) {
   .wrap { width: min(100% - 4rem, 76rem); }
@@ -389,7 +487,7 @@ img { display: block; max-width: 100%; height: auto; }
   .hero-layout { gap: 3.15rem; min-height: 35rem; }
 }
 
-@media (max-width: 52rem) {
+@media (max-width: 65rem) {
   .masthead-inner { flex-wrap: wrap; gap: 0.4rem 1rem; padding-block: 0.55rem; }
   .enhanced .menu-button { display: block; }
   .site-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; gap: 0.15rem 0.65rem; padding-bottom: 0.5rem; }
@@ -413,7 +511,7 @@ img { display: block; max-width: 100%; height: auto; }
   .timeline-strip button:focus-visible { outline-offset: -4px; }
   .timeline-panel { grid-template-columns: 1fr; min-height: 0; gap: 0.6rem; }
   .timeline-date { display: none; }
-  .case, .research-layout, .credits-layout, .quiz-layout, .compare-grid, .spread { grid-template-columns: 1fr; }
+  .case, .research-layout, .credits-layout, .compare-grid, .spread, .motion-studio, .rhythm-lab, .quiz-questions { grid-template-columns: 1fr; }
   .case { gap: 0.55rem; }
   .case-meta br { display: none; }
   .case-meta strong { margin-left: 0.4rem; font-size: 1.15rem; }
@@ -429,10 +527,10 @@ img { display: block; max-width: 100%; height: auto; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0s !important; transition-duration: 0s !important; }
+  .beat-lane { display: none; }
 }
 
 .share-section h2 { font-size: clamp(2.6rem, 7vw, 5.5rem); letter-spacing: -0.055em; margin-block: 0.55rem 1.15rem; }
-.share-section .statement { padding-bottom: 0; }
   </style>
 </head>
 <body id="home">
@@ -448,7 +546,8 @@ img { display: block; max-width: 100%; height: auto; }
         <a href="#history">Dance &amp; History</a>
         <a href="#then-now">Then vs. Now</a>
         <a href="#research">Research</a>
-        <a href="#quiz">Kahoot</a>
+        <a href="#rhythm">Rhythm game</a>
+        <a href="#quiz">Quiz</a>
       </nav>
     </div>
   </header>
@@ -486,7 +585,7 @@ img { display: block; max-width: 100%; height: auto; }
         <div class="section-heading">
           <p class="kicker">The timeline</p>
           <h2 id="timeline-title">A century in steps</h2>
-          <p>Follow five moments from the origins of Lindy Hop to the questions its revival raised about credit and cultural ownership.</p>
+          <p>Choose an era, then play or step through a short movement study to see how its dance uses weight, timing, or space.</p>
         </div>
         <div class="timeline-strip" data-tablist="timeline-title" hidden>
           <button type="button" id="tab-harlem" aria-controls="era-harlem"><span>1920s–30s</span> Harlem</button>
@@ -542,6 +641,24 @@ img { display: block; max-width: 100%; height: auto; }
             </div>
           </article>
         </div>
+        <section id="dance-preview" class="motion-studio" aria-labelledby="preview-title" hidden>
+          <figure class="motion-screen">
+            <canvas id="preview-stage" width="680" height="330" role="img" aria-label="Animated movement study"></canvas>
+            <figcaption>Illustrated study <span aria-hidden="true">·</span> <span id="preview-count"></span></figcaption>
+          </figure>
+          <div class="motion-notes">
+            <p class="kicker">Watch the movement</p>
+            <h3 id="preview-title"></h3>
+            <p id="preview-description"></p>
+            <p id="preview-step" aria-live="polite"></p>
+            <div class="study-controls" aria-label="Movement controls">
+              <button type="button" id="preview-play" class="button button-primary">Play dance</button>
+              <button type="button" id="preview-back" class="button button-outline">Previous count</button>
+              <button type="button" id="preview-next" class="button button-outline">Next count</button>
+            </div>
+            <a id="preview-source" class="source-link" hidden></a>
+          </div>
+        </section>
       </div>
     </section>
 
@@ -550,7 +667,7 @@ img { display: block; max-width: 100%; height: auto; }
         <div class="section-heading">
           <p class="kicker">The magazine</p>
           <h2 id="magazine-title">Dance in print</h2>
-          <p>Turn through two spreads, each featuring one original magazine cover and a description of the dance culture it documented.</p>
+          <p>Turn the pages, then open the archive to examine the 1947 cover or read the full February 1962 issue.</p>
         </div>
         <div class="reader" aria-label="Dance in Print magazine">
           <div class="book" id="magazine-book">
@@ -564,7 +681,11 @@ img { display: block; max-width: 100%; height: auto; }
                 <h3>Song and Picture Barn Dance Magazine</h3>
                 <p>This magazine brought postwar American country music and rural radio culture into print. It profiled radio barn dance performers and country-western musicians, pairing song lyrics with photographs. Traditional square dance calls were part of the barn dance culture those broadcasts shared with listeners.</p>
                 <p>The 1947 cover features country singer Elton Britt. It gives a face to a performer listeners might have known only by voice.</p>
-                <p class="citation"><a href="#ref-barn-dance">Source for the 1947 cover</a></p>
+                <div class="study-controls">
+                  <a class="button button-outline" href="https://www.si.edu/es/object/song-and-picture-barn-dance-magazine-issue-no-3%3Anmah_1450607">Open Smithsonian record</a>
+                  <a class="source-link" href="https://ids.si.edu/ids/iiif/NMAH-AHB2013q008526/full/full/0/default.jpg">Enlarge the cover</a>
+                </div>
+                <p class="archive-note">The Smithsonian provides a cover scan for this issue.</p>
               </div>
             </article>
             <article class="spread">
@@ -577,7 +698,10 @@ img { display: block; max-width: 100%; height: auto; }
                 <h3>Sets in Order</h3>
                 <p>The magazine documented the American square and round dance revival. It published choreography and step-by-step guidance for callers, the people who prompt dancers through a sequence. Club news, meeting notices, and event listings connected readers to the social life around the dances.</p>
                 <p>The February 1962 cover shows a couple in a promenade and points readers to a story about square dance organization. The two details capture the magazine’s interest in both the steps and the clubs that brought people together.</p>
-                <p class="citation"><a href="#ref-sets-in-order">Source for the February 1962 cover</a></p>
+                <div class="study-controls">
+                  <a class="button button-outline" href="https://archive.org/details/sets_in_order_196202/page/n0/mode/1up">Read the full issue</a>
+                </div>
+                <p class="archive-note">The Internet Archive reader opens at the cover. Use its page controls to read inside.</p>
               </div>
             </article>
           </div>
@@ -605,6 +729,12 @@ img { display: block; max-width: 100%; height: auto; }
               <p>Young people in Hamburg gathered to listen and dance to swing. Their attachment to American and British jazz and their distinctive style ran against Nazi demands for cultural and social conformity. Jazz had strong Black American roots, and Jewish musicians also played important roles in European jazz. Nazi racial ideology made the music a target, even though enforcement and restrictions varied.</p>
               <p>Authorities monitored gatherings, made arrests, and sent some young people to camps. Individual motives varied, from pleasure and friendship to open defiance. The crackdown shows how an authoritarian state could turn a musical preference into evidence of disloyalty.</p>
               <p class="citation"><a href="#ref-kater">Kater, 2003</a></p>
+              <details class="history-clip" data-frame="https://player.pbs.org/viralplayer/2365283606/" data-title="PBS History Detectives: Swing Kids in Hamburg">
+                <summary>Watch: Swing Kids in Hamburg</summary>
+                <p>In this PBS interview, scholar Les Back discusses underground jazz in wartime Germany. The interview was recorded after the war.</p>
+                <div class="media-player"></div>
+                <p><a href="https://www.pbs.org/opb/historydetectives/video/2365283606/index.html">Open the interview at PBS</a></p>
+              </details>
             </div>
           </article>
           <article class="case">
@@ -614,6 +744,12 @@ img { display: block; max-width: 100%; height: auto; }
               <p>Dance offered occasions for sociability amid wartime work, travel, and uncertainty. Bubley’s Washington photograph records an Elks Club dance. Other wartime photographs show jitterbugging among troops preparing to depart and formal social dances at officers’ clubs. These settings had different purposes, from a night out to organized recreation.</p>
               <p>Photographs also record dancing among Japanese Americans imprisoned by the U.S. government. Dancing there could sustain social life under confinement. The photographs establish that dancing took place in these settings. A caption alone cannot tell us how participants felt, who was excluded, or whether the photographer staged a scene.</p>
               <p class="citation"><a href="#ref-bubley">Bubley, 1943</a> <a href="#ref-hammerich">Hammerich, 2022</a></p>
+              <details class="history-clip" data-frame="https://www.youtube-nocookie.com/embed/t8pXDfX2giU" data-title="British Pathé: Jive Dance (1943)">
+                <summary>Watch: Jitterbug and jive in 1943</summary>
+                <p>British Pathé filmed dancers at the Hammersmith Palais in London. Watch the partners’ footwork and how people take up the dance together.</p>
+                <div class="media-player"></div>
+                <p><a href="https://www.youtube.com/watch?v=t8pXDfX2giU">Open British Pathé’s 1943 newsreel</a></p>
+              </details>
             </div>
           </article>
           <article class="case">
@@ -623,6 +759,12 @@ img { display: block; max-width: 100%; height: auto; }
               <p>The Bolshoi Ballet’s 1959 U.S. tour and New York City Ballet’s 1962 Soviet tour were part of a bilateral cultural exchange. Officials used performances to project prestige and create moments of goodwill. The New York City Ballet tour unfolded during the Cuban Missile Crisis, when the stakes of official relations were especially visible.</p>
               <p>Dance historian Anne Searcy shows that spectators interpreted visiting companies through local artistic expectations. The tours created contact even while political conflict continued. Their significance lies partly in what dancers and spectators made of those encounters for themselves.</p>
               <p class="citation"><a href="#ref-searcy">Searcy, 2020</a></p>
+              <details class="history-clip" data-video="https://dlg.usg.edu/dlg_av/ugabma/wsbn/ugabma_wsbn_wsbn36035.mp4" data-title="WSB-TV newsfilm: The Bulshoi Ballet Opens (1959)">
+                <summary>Watch: The Bolshoi Ballet opens in 1959</summary>
+                <p>This WSB-TV newsfilm documents the Bolshoi’s 1959 American visit, one of the exchanges described above.</p>
+                <div class="media-player"></div>
+                <p><a href="https://dlg.usg.edu/record/ugabma_wsbn_wsbn36035">Open the newsfilm in the Digital Library of Georgia</a></p>
+              </details>
             </div>
           </article>
         </div>
@@ -657,6 +799,42 @@ img { display: block; max-width: 100%; height: auto; }
       </div>
     </section>
 
+    <section class="gallery rhythm-section" id="rhythm" aria-labelledby="rhythm-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="kicker">Rhythm game</p>
+          <h2 id="rhythm-title">Find the beat</h2>
+          <p>Choose a dance, then tap when an accented beat reaches the center mark. The dancer follows the count as you play.</p>
+        </div>
+        <div id="rhythm-game" class="rhythm-lab" hidden>
+          <figure class="motion-screen game-screen">
+            <canvas id="game-stage" width="680" height="330" role="img" aria-label="Animated dance paced to the round"></canvas>
+            <figcaption id="game-meter"></figcaption>
+          </figure>
+          <div class="game-controls">
+            <div class="game-options">
+              <label>Dance <select id="game-dance"></select></label>
+              <label>Pace <select id="game-pace"><option value="1">Regular</option><option value="0.75">Practice</option></select></label>
+            </div>
+            <p id="game-instructions">Tap <strong>Hit beat</strong> or press <kbd>D</kbd> while focus is in the game. Follow the on-screen count with sound on or off.</p>
+            <div class="beat-lane" id="beat-lane" aria-hidden="true"><span class="beat-target"></span></div>
+            <div class="game-readout">
+              <p id="game-beat">Ready</p>
+              <p id="game-score">Score 0</p>
+            </div>
+            <p id="game-feedback" class="game-feedback" role="status" aria-live="polite">Choose a dance to start.</p>
+            <div class="study-controls game-actions">
+              <button type="button" id="game-start" class="button button-primary">Start round</button>
+              <button type="button" id="game-tap" class="button button-outline" aria-disabled="true" aria-describedby="game-instructions">Hit beat</button>
+              <button type="button" id="game-sound" class="button button-outline" aria-pressed="true">Sound on</button>
+              <button type="button" id="game-reset" class="button button-outline" hidden>Reset round</button>
+            </div>
+          </div>
+        </div>
+        <noscript><p>Enable JavaScript to play the rhythm game.</p></noscript>
+      </div>
+    </section>
+
     <section class="gallery" id="research" aria-labelledby="research-title">
       <div class="wrap research-layout">
         <div class="section-heading">
@@ -676,6 +854,12 @@ img { display: block; max-width: 100%; height: auto; }
             <li id="ref-sets-in-order">Sets in Order, Inc. (1962, February). <cite>Sets in order: The official magazine of square dancing, 14</cite>(2) [Magazine cover]. Internet Archive. <a href="https://archive.org/details/sets_in_order_196202/page/n0/mode/1up">https://archive.org/details/sets_in_order_196202/page/n0/mode/1up</a></li>
             <li id="ref-barn-dance">Song and Picture Barn Dance Magazine. (1947). <cite>Song and picture barn dance magazine</cite> (No. 3) [Magazine cover]. Smithsonian National Museum of American History. <a href="https://www.americanhistory.si.edu/collections/object/nmah_1450607">https://www.americanhistory.si.edu/collections/object/nmah_1450607</a></li>
           </ul>
+          <h3>Film and video</h3>
+          <ul class="references">
+            <li>British Pathé. (1943). <cite>Jive dance</cite> [Newsreel]. <a href="https://www.youtube.com/watch?v=t8pXDfX2giU">British Pathé archive</a>.</li>
+            <li>PBS. (n.d.). <cite>Deleted scene: Swing Kids in Hamburg</cite> [Interview]. <a href="https://www.pbs.org/opb/historydetectives/video/2365283606/index.html">History Detectives</a>.</li>
+            <li>WSB-TV. (1959, April 17). <cite>The Bulshoi Ballet opens</cite> [Newsfilm]. <a href="https://dlg.usg.edu/record/ugabma_wsbn_wsbn36035">Digital Library of Georgia</a>.</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -689,7 +873,7 @@ img { display: block; max-width: 100%; height: auto; }
           <ul class="member-list">
             <li><strong data-member="0">Adam</strong><span>Home, timeline, and part of the magazine</span></li>
             <li><strong data-member="1">Ramez</strong><span>Dance &amp; History and the rest of the magazine</span></li>
-            <li><strong data-member="2">Nael</strong><span>Then vs. Now and Kahoot</span></li>
+            <li><strong data-member="2">Nael</strong><span>Then vs. Now and the original quiz concept</span></li>
           </ul>
         </div>
         <div class="credits-notes">
@@ -711,34 +895,34 @@ img { display: block; max-width: 100%; height: auto; }
         <p>When we started <em>The World in Motion</em>, I wanted to understand how dance has reflected and influenced history. I usually think of dance as something people do for fun or to express themselves. What interested me was how much you can learn by asking where people danced, who could join them, and what was happening around them.</p>
         <p>One example that stood out to me was the Swing Youth in Nazi Germany. Some young people wanted to listen to jazz and dance with their friends. The authorities saw that as a threat. In the United States during World War II, social dancing gave some people a chance to spend time together during a stressful period. Later, Cold War ballet tours gave audiences a chance to see artists from a country their government treated as a rival.</p>
         <p>We made a digital museum so people could explore the examples at their own pace. The timeline puts the events in order. In the magazine, visitors can turn from a 1947 cover of <cite>Song and Picture Barn Dance Magazine</cite> to a 1962 cover of <cite>Sets in Order</cite>. I liked seeing how one magazine introduced readers to radio performers, while the other helped dancers and callers share steps and stay connected. Then vs. Now asks how people share dances and give credit to the communities that created them. We gave the website an aged paper look because we wanted it to feel like a museum guide you could flip through.</p>
-        <p>I hope visitors leave thinking about what a dance can tell them about the people who do it. Getting together and moving to music can mean something different depending on the place, the people, and the rules. We added a Kahoot page at the end so classmates can revisit the examples and see what they remember.</p>
+        <p>I hope visitors leave thinking about what a dance can tell them about the people who do it. Getting together and moving to music can mean something different depending on the place, the people, and the rules. We added a museum quiz at the end so classmates can revisit the examples and see what they remember.</p>
       </div>
       <a class="button button-outline" href="#credits">Return to credits</a>
     </article>
     </section>
-    <section class="gallery paper-deep share-section" id="quiz" aria-labelledby="quiz-title">
-    <div class="wrap quiz-layout">
-      <div class="quiz-copy">
-        <p class="kicker">Final stop <span aria-hidden="true">·</span> PFA 222</p>
-        <h2 id="quiz-title">The exhibition quiz</h2>
-        <p>Revisit the stories from the museum, from Harlem and the Cold War tours to barn dance radio and the square dance revival.</p>
-        <p id="quiz-status">The Kahoot link is pending. While you wait, <a href="#magazine">compare the two magazine covers</a> or review the timeline.</p>
-        <a class="button button-primary" id="quiz-link" hidden>Open Kahoot</a>
-        <a class="button button-outline" href="#timeline">Review the timeline</a>
+
+    <section class="gallery paper-deep" id="quiz" aria-labelledby="quiz-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="kicker">Final stop</p>
+          <h2 id="quiz-title">The exhibition quiz</h2>
+          <p>Choose one answer per question. You’ll see the correct answer and why it fits.</p>
+        </div>
+        <div id="museum-quiz" class="museum-quiz" hidden>
+          <div class="quiz-toolbar">
+            <p id="quiz-progress" role="status" aria-live="polite"></p>
+            <button type="button" id="quiz-reset" class="button button-outline">Reset quiz</button>
+          </div>
+          <div id="quiz-questions" class="quiz-questions"></div>
+        </div>
+        <noscript><p>Enable JavaScript to answer the exhibition quiz.</p></noscript>
       </div>
-      <figure class="qr-card">
-        <div id="qr-empty" class="qr-empty">QR code pending<span>Available once the Kahoot link is added</span></div>
-        <img id="quiz-qr" class="qr-image" alt="QR code for the exhibition quiz on Kahoot" hidden>
-        <figcaption>Kahoot <span aria-hidden="true">·</span> The World in Motion</figcaption>
-      </figure>
-    </div>
     </section>
   </main>
   <footer class="footer">
     <div class="wrap footer-inner"><p>The World in Motion <span aria-hidden="true">·</span> PFA 222</p><div><a href="#credits">Credits</a><a href="#home">Back to top</a></div></div>
   </footer>
 <script type="text/plain" id="asset-licenses">
-playfair-license.txt
 Copyright 2017 The Playfair Display Project Authors (https://github.com/clauseggers/Playfair-Display), with Reserved Font Name "Playfair Display"
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
@@ -834,7 +1018,6 @@ FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.
 
 
-dm-sans-license.txt
 Copyright 2014 The DM Sans Project Authors (https://github.com/googlefonts/dm-fonts)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
@@ -929,2342 +1112,17 @@ DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.
 
-
-qrcode-license.txt
-MIT License
-
-Copyright (c) 2009 Kazuhiko Arase
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-</script>
-<script id="museum-settings">
-// Update the credited names or enter the full Kahoot player link.
-window.MUSEUM_CONFIG = {
-  members: ["Adam", "Ramez", "Nael"],
-  kahootUrl: ""
-};
 </script>
 <script>
-//---------------------------------------------------------------------
-//
-// QR Code Generator for JavaScript
-//
-// Copyright (c) 2009 Kazuhiko Arase
-//
-// URL: http://www.d-project.com/
-//
-// Licensed under the MIT license:
-//  http://www.opensource.org/licenses/mit-license.php
-//
-// The word 'QR Code' is registered trademark of
-// DENSO WAVE INCORPORATED
-//  http://www.denso-wave.com/qrcode/faqpatent-e.html
-//
-//---------------------------------------------------------------------
-
-var qrcode = function() {
-
-  //---------------------------------------------------------------------
-  // qrcode
-  //---------------------------------------------------------------------
-
-  /**
-   * qrcode
-   * @param typeNumber 1 to 40
-   * @param errorCorrectionLevel 'L','M','Q','H'
-   */
-  var qrcode = function(typeNumber, errorCorrectionLevel) {
-
-    var PAD0 = 0xEC;
-    var PAD1 = 0x11;
-
-    var _typeNumber = typeNumber;
-    var _errorCorrectionLevel = QRErrorCorrectionLevel[errorCorrectionLevel];
-    var _modules = null;
-    var _moduleCount = 0;
-    var _dataCache = null;
-    var _dataList = [];
-
-    var _this = {};
-
-    var makeImpl = function(test, maskPattern) {
-
-      _moduleCount = _typeNumber * 4 + 17;
-      _modules = function(moduleCount) {
-        var modules = new Array(moduleCount);
-        for (var row = 0; row < moduleCount; row += 1) {
-          modules[row] = new Array(moduleCount);
-          for (var col = 0; col < moduleCount; col += 1) {
-            modules[row][col] = null;
-          }
-        }
-        return modules;
-      }(_moduleCount);
-
-      setupPositionProbePattern(0, 0);
-      setupPositionProbePattern(_moduleCount - 7, 0);
-      setupPositionProbePattern(0, _moduleCount - 7);
-      setupPositionAdjustPattern();
-      setupTimingPattern();
-      setupTypeInfo(test, maskPattern);
-
-      if (_typeNumber >= 7) {
-        setupTypeNumber(test);
-      }
-
-      if (_dataCache == null) {
-        _dataCache = createData(_typeNumber, _errorCorrectionLevel, _dataList);
-      }
-
-      mapData(_dataCache, maskPattern);
-    };
-
-    var setupPositionProbePattern = function(row, col) {
-
-      for (var r = -1; r <= 7; r += 1) {
-
-        if (row + r <= -1 || _moduleCount <= row + r) continue;
-
-        for (var c = -1; c <= 7; c += 1) {
-
-          if (col + c <= -1 || _moduleCount <= col + c) continue;
-
-          if ( (0 <= r && r <= 6 && (c == 0 || c == 6) )
-              || (0 <= c && c <= 6 && (r == 0 || r == 6) )
-              || (2 <= r && r <= 4 && 2 <= c && c <= 4) ) {
-            _modules[row + r][col + c] = true;
-          } else {
-            _modules[row + r][col + c] = false;
-          }
-        }
-      }
-    };
-
-    var getBestMaskPattern = function() {
-
-      var minLostPoint = 0;
-      var pattern = 0;
-
-      for (var i = 0; i < 8; i += 1) {
-
-        makeImpl(true, i);
-
-        var lostPoint = QRUtil.getLostPoint(_this);
-
-        if (i == 0 || minLostPoint > lostPoint) {
-          minLostPoint = lostPoint;
-          pattern = i;
-        }
-      }
-
-      return pattern;
-    };
-
-    var setupTimingPattern = function() {
-
-      for (var r = 8; r < _moduleCount - 8; r += 1) {
-        if (_modules[r][6] != null) {
-          continue;
-        }
-        _modules[r][6] = (r % 2 == 0);
-      }
-
-      for (var c = 8; c < _moduleCount - 8; c += 1) {
-        if (_modules[6][c] != null) {
-          continue;
-        }
-        _modules[6][c] = (c % 2 == 0);
-      }
-    };
-
-    var setupPositionAdjustPattern = function() {
-
-      var pos = QRUtil.getPatternPosition(_typeNumber);
-
-      for (var i = 0; i < pos.length; i += 1) {
-
-        for (var j = 0; j < pos.length; j += 1) {
-
-          var row = pos[i];
-          var col = pos[j];
-
-          if (_modules[row][col] != null) {
-            continue;
-          }
-
-          for (var r = -2; r <= 2; r += 1) {
-
-            for (var c = -2; c <= 2; c += 1) {
-
-              if (r == -2 || r == 2 || c == -2 || c == 2
-                  || (r == 0 && c == 0) ) {
-                _modules[row + r][col + c] = true;
-              } else {
-                _modules[row + r][col + c] = false;
-              }
-            }
-          }
-        }
-      }
-    };
-
-    var setupTypeNumber = function(test) {
-
-      var bits = QRUtil.getBCHTypeNumber(_typeNumber);
-
-      for (var i = 0; i < 18; i += 1) {
-        var mod = (!test && ( (bits >> i) & 1) == 1);
-        _modules[Math.floor(i / 3)][i % 3 + _moduleCount - 8 - 3] = mod;
-      }
-
-      for (var i = 0; i < 18; i += 1) {
-        var mod = (!test && ( (bits >> i) & 1) == 1);
-        _modules[i % 3 + _moduleCount - 8 - 3][Math.floor(i / 3)] = mod;
-      }
-    };
-
-    var setupTypeInfo = function(test, maskPattern) {
-
-      var data = (_errorCorrectionLevel << 3) | maskPattern;
-      var bits = QRUtil.getBCHTypeInfo(data);
-
-      // vertical
-      for (var i = 0; i < 15; i += 1) {
-
-        var mod = (!test && ( (bits >> i) & 1) == 1);
-
-        if (i < 6) {
-          _modules[i][8] = mod;
-        } else if (i < 8) {
-          _modules[i + 1][8] = mod;
-        } else {
-          _modules[_moduleCount - 15 + i][8] = mod;
-        }
-      }
-
-      // horizontal
-      for (var i = 0; i < 15; i += 1) {
-
-        var mod = (!test && ( (bits >> i) & 1) == 1);
-
-        if (i < 8) {
-          _modules[8][_moduleCount - i - 1] = mod;
-        } else if (i < 9) {
-          _modules[8][15 - i - 1 + 1] = mod;
-        } else {
-          _modules[8][15 - i - 1] = mod;
-        }
-      }
-
-      // fixed module
-      _modules[_moduleCount - 8][8] = (!test);
-    };
-
-    var mapData = function(data, maskPattern) {
-
-      var inc = -1;
-      var row = _moduleCount - 1;
-      var bitIndex = 7;
-      var byteIndex = 0;
-      var maskFunc = QRUtil.getMaskFunction(maskPattern);
-
-      for (var col = _moduleCount - 1; col > 0; col -= 2) {
-
-        if (col == 6) col -= 1;
-
-        while (true) {
-
-          for (var c = 0; c < 2; c += 1) {
-
-            if (_modules[row][col - c] == null) {
-
-              var dark = false;
-
-              if (byteIndex < data.length) {
-                dark = ( ( (data[byteIndex] >>> bitIndex) & 1) == 1);
-              }
-
-              var mask = maskFunc(row, col - c);
-
-              if (mask) {
-                dark = !dark;
-              }
-
-              _modules[row][col - c] = dark;
-              bitIndex -= 1;
-
-              if (bitIndex == -1) {
-                byteIndex += 1;
-                bitIndex = 7;
-              }
-            }
-          }
-
-          row += inc;
-
-          if (row < 0 || _moduleCount <= row) {
-            row -= inc;
-            inc = -inc;
-            break;
-          }
-        }
-      }
-    };
-
-    var createBytes = function(buffer, rsBlocks) {
-
-      var offset = 0;
-
-      var maxDcCount = 0;
-      var maxEcCount = 0;
-
-      var dcdata = new Array(rsBlocks.length);
-      var ecdata = new Array(rsBlocks.length);
-
-      for (var r = 0; r < rsBlocks.length; r += 1) {
-
-        var dcCount = rsBlocks[r].dataCount;
-        var ecCount = rsBlocks[r].totalCount - dcCount;
-
-        maxDcCount = Math.max(maxDcCount, dcCount);
-        maxEcCount = Math.max(maxEcCount, ecCount);
-
-        dcdata[r] = new Array(dcCount);
-
-        for (var i = 0; i < dcdata[r].length; i += 1) {
-          dcdata[r][i] = 0xff & buffer.getBuffer()[i + offset];
-        }
-        offset += dcCount;
-
-        var rsPoly = QRUtil.getErrorCorrectPolynomial(ecCount);
-        var rawPoly = qrPolynomial(dcdata[r], rsPoly.getLength() - 1);
-
-        var modPoly = rawPoly.mod(rsPoly);
-        ecdata[r] = new Array(rsPoly.getLength() - 1);
-        for (var i = 0; i < ecdata[r].length; i += 1) {
-          var modIndex = i + modPoly.getLength() - ecdata[r].length;
-          ecdata[r][i] = (modIndex >= 0)? modPoly.getAt(modIndex) : 0;
-        }
-      }
-
-      var totalCodeCount = 0;
-      for (var i = 0; i < rsBlocks.length; i += 1) {
-        totalCodeCount += rsBlocks[i].totalCount;
-      }
-
-      var data = new Array(totalCodeCount);
-      var index = 0;
-
-      for (var i = 0; i < maxDcCount; i += 1) {
-        for (var r = 0; r < rsBlocks.length; r += 1) {
-          if (i < dcdata[r].length) {
-            data[index] = dcdata[r][i];
-            index += 1;
-          }
-        }
-      }
-
-      for (var i = 0; i < maxEcCount; i += 1) {
-        for (var r = 0; r < rsBlocks.length; r += 1) {
-          if (i < ecdata[r].length) {
-            data[index] = ecdata[r][i];
-            index += 1;
-          }
-        }
-      }
-
-      return data;
-    };
-
-    var createData = function(typeNumber, errorCorrectionLevel, dataList) {
-
-      var rsBlocks = QRRSBlock.getRSBlocks(typeNumber, errorCorrectionLevel);
-
-      var buffer = qrBitBuffer();
-
-      for (var i = 0; i < dataList.length; i += 1) {
-        var data = dataList[i];
-        buffer.put(data.getMode(), 4);
-        buffer.put(data.getLength(), QRUtil.getLengthInBits(data.getMode(), typeNumber) );
-        data.write(buffer);
-      }
-
-      // calc num max data.
-      var totalDataCount = 0;
-      for (var i = 0; i < rsBlocks.length; i += 1) {
-        totalDataCount += rsBlocks[i].dataCount;
-      }
-
-      if (buffer.getLengthInBits() > totalDataCount * 8) {
-        throw 'code length overflow. ('
-          + buffer.getLengthInBits()
-          + '>'
-          + totalDataCount * 8
-          + ')';
-      }
-
-      // end code
-      if (buffer.getLengthInBits() + 4 <= totalDataCount * 8) {
-        buffer.put(0, 4);
-      }
-
-      // padding
-      while (buffer.getLengthInBits() % 8 != 0) {
-        buffer.putBit(false);
-      }
-
-      // padding
-      while (true) {
-
-        if (buffer.getLengthInBits() >= totalDataCount * 8) {
-          break;
-        }
-        buffer.put(PAD0, 8);
-
-        if (buffer.getLengthInBits() >= totalDataCount * 8) {
-          break;
-        }
-        buffer.put(PAD1, 8);
-      }
-
-      return createBytes(buffer, rsBlocks);
-    };
-
-    _this.addData = function(data, mode) {
-
-      mode = mode || 'Byte';
-
-      var newData = null;
-
-      switch(mode) {
-      case 'Numeric' :
-        newData = qrNumber(data);
-        break;
-      case 'Alphanumeric' :
-        newData = qrAlphaNum(data);
-        break;
-      case 'Byte' :
-        newData = qr8BitByte(data);
-        break;
-      case 'Kanji' :
-        newData = qrKanji(data);
-        break;
-      default :
-        throw 'mode:' + mode;
-      }
-
-      _dataList.push(newData);
-      _dataCache = null;
-    };
-
-    _this.isDark = function(row, col) {
-      if (row < 0 || _moduleCount <= row || col < 0 || _moduleCount <= col) {
-        throw row + ',' + col;
-      }
-      return _modules[row][col];
-    };
-
-    _this.getModuleCount = function() {
-      return _moduleCount;
-    };
-
-    _this.make = function() {
-      if (_typeNumber < 1) {
-        var typeNumber = 1;
-
-        for (; typeNumber < 40; typeNumber++) {
-          var rsBlocks = QRRSBlock.getRSBlocks(typeNumber, _errorCorrectionLevel);
-          var buffer = qrBitBuffer();
-
-          for (var i = 0; i < _dataList.length; i++) {
-            var data = _dataList[i];
-            buffer.put(data.getMode(), 4);
-            buffer.put(data.getLength(), QRUtil.getLengthInBits(data.getMode(), typeNumber) );
-            data.write(buffer);
-          }
-
-          var totalDataCount = 0;
-          for (var i = 0; i < rsBlocks.length; i++) {
-            totalDataCount += rsBlocks[i].dataCount;
-          }
-
-          if (buffer.getLengthInBits() <= totalDataCount * 8) {
-            break;
-          }
-        }
-
-        _typeNumber = typeNumber;
-      }
-
-      makeImpl(false, getBestMaskPattern() );
-    };
-
-    _this.createTableTag = function(cellSize, margin) {
-
-      cellSize = cellSize || 2;
-      margin = (typeof margin == 'undefined')? cellSize * 4 : margin;
-
-      var qrHtml = '';
-
-      qrHtml += '<table style="';
-      qrHtml += ' border-width: 0px; border-style: none;';
-      qrHtml += ' border-collapse: collapse;';
-      qrHtml += ' padding: 0px; margin: ' + margin + 'px;';
-      qrHtml += '">';
-      qrHtml += '<tbody>';
-
-      for (var r = 0; r < _this.getModuleCount(); r += 1) {
-
-        qrHtml += '<tr>';
-
-        for (var c = 0; c < _this.getModuleCount(); c += 1) {
-          qrHtml += '<td style="';
-          qrHtml += ' border-width: 0px; border-style: none;';
-          qrHtml += ' border-collapse: collapse;';
-          qrHtml += ' padding: 0px; margin: 0px;';
-          qrHtml += ' width: ' + cellSize + 'px;';
-          qrHtml += ' height: ' + cellSize + 'px;';
-          qrHtml += ' background-color: ';
-          qrHtml += _this.isDark(r, c)? '#000000' : '#ffffff';
-          qrHtml += ';';
-          qrHtml += '"/>';
-        }
-
-        qrHtml += '</tr>';
-      }
-
-      qrHtml += '</tbody>';
-      qrHtml += '</table>';
-
-      return qrHtml;
-    };
-
-    _this.createSvgTag = function(cellSize, margin, alt, title) {
-
-      var opts = {};
-      if (typeof arguments[0] == 'object') {
-        // Called by options.
-        opts = arguments[0];
-        // overwrite cellSize and margin.
-        cellSize = opts.cellSize;
-        margin = opts.margin;
-        alt = opts.alt;
-        title = opts.title;
-      }
-
-      cellSize = cellSize || 2;
-      margin = (typeof margin == 'undefined')? cellSize * 4 : margin;
-
-      // Compose alt property surrogate
-      alt = (typeof alt === 'string') ? {text: alt} : alt || {};
-      alt.text = alt.text || null;
-      alt.id = (alt.text) ? alt.id || 'qrcode-description' : null;
-
-      // Compose title property surrogate
-      title = (typeof title === 'string') ? {text: title} : title || {};
-      title.text = title.text || null;
-      title.id = (title.text) ? title.id || 'qrcode-title' : null;
-
-      var size = _this.getModuleCount() * cellSize + margin * 2;
-      var c, mc, r, mr, qrSvg='', rect;
-
-      rect = 'l' + cellSize + ',0 0,' + cellSize +
-        ' -' + cellSize + ',0 0,-' + cellSize + 'z ';
-
-      qrSvg += '<svg version="1.1" xmlns="http://www.w3.org/2000/svg"';
-      qrSvg += !opts.scalable ? ' width="' + size + 'px" height="' + size + 'px"' : '';
-      qrSvg += ' viewBox="0 0 ' + size + ' ' + size + '" ';
-      qrSvg += ' preserveAspectRatio="xMinYMin meet"';
-      qrSvg += (title.text || alt.text) ? ' role="img" aria-labelledby="' +
-          escapeXml([title.id, alt.id].join(' ').trim() ) + '"' : '';
-      qrSvg += '>';
-      qrSvg += (title.text) ? '<title id="' + escapeXml(title.id) + '">' +
-          escapeXml(title.text) + '</title>' : '';
-      qrSvg += (alt.text) ? '<description id="' + escapeXml(alt.id) + '">' +
-          escapeXml(alt.text) + '</description>' : '';
-      qrSvg += '<rect width="100%" height="100%" fill="white" cx="0" cy="0"/>';
-      qrSvg += '<path d="';
-
-      for (r = 0; r < _this.getModuleCount(); r += 1) {
-        mr = r * cellSize + margin;
-        for (c = 0; c < _this.getModuleCount(); c += 1) {
-          if (_this.isDark(r, c) ) {
-            mc = c*cellSize+margin;
-            qrSvg += 'M' + mc + ',' + mr + rect;
-          }
-        }
-      }
-
-      qrSvg += '" stroke="transparent" fill="black"/>';
-      qrSvg += '</svg>';
-
-      return qrSvg;
-    };
-
-    _this.createDataURL = function(cellSize, margin) {
-
-      cellSize = cellSize || 2;
-      margin = (typeof margin == 'undefined')? cellSize * 4 : margin;
-
-      var size = _this.getModuleCount() * cellSize + margin * 2;
-      var min = margin;
-      var max = size - margin;
-
-      return createDataURL(size, size, function(x, y) {
-        if (min <= x && x < max && min <= y && y < max) {
-          var c = Math.floor( (x - min) / cellSize);
-          var r = Math.floor( (y - min) / cellSize);
-          return _this.isDark(r, c)? 0 : 1;
-        } else {
-          return 1;
-        }
-      } );
-    };
-
-    _this.createImgTag = function(cellSize, margin, alt) {
-
-      cellSize = cellSize || 2;
-      margin = (typeof margin == 'undefined')? cellSize * 4 : margin;
-
-      var size = _this.getModuleCount() * cellSize + margin * 2;
-
-      var img = '';
-      img += '<img';
-      img += '\u0020src="';
-      img += _this.createDataURL(cellSize, margin);
-      img += '"';
-      img += '\u0020width="';
-      img += size;
-      img += '"';
-      img += '\u0020height="';
-      img += size;
-      img += '"';
-      if (alt) {
-        img += '\u0020alt="';
-        img += escapeXml(alt);
-        img += '"';
-      }
-      img += '/>';
-
-      return img;
-    };
-
-    var escapeXml = function(s) {
-      var escaped = '';
-      for (var i = 0; i < s.length; i += 1) {
-        var c = s.charAt(i);
-        switch(c) {
-        case '<': escaped += '&lt;'; break;
-        case '>': escaped += '&gt;'; break;
-        case '&': escaped += '&amp;'; break;
-        case '"': escaped += '&quot;'; break;
-        default : escaped += c; break;
-        }
-      }
-      return escaped;
-    };
-
-    var _createHalfASCII = function(margin) {
-      var cellSize = 1;
-      margin = (typeof margin == 'undefined')? cellSize * 2 : margin;
-
-      var size = _this.getModuleCount() * cellSize + margin * 2;
-      var min = margin;
-      var max = size - margin;
-
-      var y, x, r1, r2, p;
-
-      var blocks = {
-        '██': '█',
-        '█ ': '▀',
-        ' █': '▄',
-        '  ': ' '
-      };
-
-      var blocksLastLineNoMargin = {
-        '██': '▀',
-        '█ ': '▀',
-        ' █': ' ',
-        '  ': ' '
-      };
-
-      var ascii = '';
-      for (y = 0; y < size; y += 2) {
-        r1 = Math.floor((y - min) / cellSize);
-        r2 = Math.floor((y + 1 - min) / cellSize);
-        for (x = 0; x < size; x += 1) {
-          p = '█';
-
-          if (min <= x && x < max && min <= y && y < max && _this.isDark(r1, Math.floor((x - min) / cellSize))) {
-            p = ' ';
-          }
-
-          if (min <= x && x < max && min <= y+1 && y+1 < max && _this.isDark(r2, Math.floor((x - min) / cellSize))) {
-            p += ' ';
-          }
-          else {
-            p += '█';
-          }
-
-          // Output 2 characters per pixel, to create full square. 1 character per pixels gives only half width of square.
-          ascii += (margin < 1 && y+1 >= max) ? blocksLastLineNoMargin[p] : blocks[p];
-        }
-
-        ascii += '\n';
-      }
-
-      if (size % 2 && margin > 0) {
-        return ascii.substring(0, ascii.length - size - 1) + Array(size+1).join('▀');
-      }
-
-      return ascii.substring(0, ascii.length-1);
-    };
-
-    _this.createASCII = function(cellSize, margin) {
-      cellSize = cellSize || 1;
-
-      if (cellSize < 2) {
-        return _createHalfASCII(margin);
-      }
-
-      cellSize -= 1;
-      margin = (typeof margin == 'undefined')? cellSize * 2 : margin;
-
-      var size = _this.getModuleCount() * cellSize + margin * 2;
-      var min = margin;
-      var max = size - margin;
-
-      var y, x, r, p;
-
-      var white = Array(cellSize+1).join('██');
-      var black = Array(cellSize+1).join('  ');
-
-      var ascii = '';
-      var line = '';
-      for (y = 0; y < size; y += 1) {
-        r = Math.floor( (y - min) / cellSize);
-        line = '';
-        for (x = 0; x < size; x += 1) {
-          p = 1;
-
-          if (min <= x && x < max && min <= y && y < max && _this.isDark(r, Math.floor((x - min) / cellSize))) {
-            p = 0;
-          }
-
-          // Output 2 characters per pixel, to create full square. 1 character per pixels gives only half width of square.
-          line += p ? white : black;
-        }
-
-        for (r = 0; r < cellSize; r += 1) {
-          ascii += line + '\n';
-        }
-      }
-
-      return ascii.substring(0, ascii.length-1);
-    };
-
-    _this.renderTo2dContext = function(context, cellSize) {
-      cellSize = cellSize || 2;
-      var length = _this.getModuleCount();
-      for (var row = 0; row < length; row++) {
-        for (var col = 0; col < length; col++) {
-          context.fillStyle = _this.isDark(row, col) ? 'black' : 'white';
-          context.fillRect(row * cellSize, col * cellSize, cellSize, cellSize);
-        }
-      }
-    }
-
-    return _this;
-  };
-
-  //---------------------------------------------------------------------
-  // qrcode.stringToBytes
-  //---------------------------------------------------------------------
-
-  qrcode.stringToBytesFuncs = {
-    'default' : function(s) {
-      var bytes = [];
-      for (var i = 0; i < s.length; i += 1) {
-        var c = s.charCodeAt(i);
-        bytes.push(c & 0xff);
-      }
-      return bytes;
-    }
-  };
-
-  qrcode.stringToBytes = qrcode.stringToBytesFuncs['default'];
-
-  //---------------------------------------------------------------------
-  // qrcode.createStringToBytes
-  //---------------------------------------------------------------------
-
-  /**
-   * @param unicodeData base64 string of byte array.
-   * [16bit Unicode],[16bit Bytes], ...
-   * @param numChars
-   */
-  qrcode.createStringToBytes = function(unicodeData, numChars) {
-
-    // create conversion map.
-
-    var unicodeMap = function() {
-
-      var bin = base64DecodeInputStream(unicodeData);
-      var read = function() {
-        var b = bin.read();
-        if (b == -1) throw 'eof';
-        return b;
-      };
-
-      var count = 0;
-      var unicodeMap = {};
-      while (true) {
-        var b0 = bin.read();
-        if (b0 == -1) break;
-        var b1 = read();
-        var b2 = read();
-        var b3 = read();
-        var k = String.fromCharCode( (b0 << 8) | b1);
-        var v = (b2 << 8) | b3;
-        unicodeMap[k] = v;
-        count += 1;
-      }
-      if (count != numChars) {
-        throw count + ' != ' + numChars;
-      }
-
-      return unicodeMap;
-    }();
-
-    var unknownChar = '?'.charCodeAt(0);
-
-    return function(s) {
-      var bytes = [];
-      for (var i = 0; i < s.length; i += 1) {
-        var c = s.charCodeAt(i);
-        if (c < 128) {
-          bytes.push(c);
-        } else {
-          var b = unicodeMap[s.charAt(i)];
-          if (typeof b == 'number') {
-            if ( (b & 0xff) == b) {
-              // 1byte
-              bytes.push(b);
-            } else {
-              // 2bytes
-              bytes.push(b >>> 8);
-              bytes.push(b & 0xff);
-            }
-          } else {
-            bytes.push(unknownChar);
-          }
-        }
-      }
-      return bytes;
-    };
-  };
-
-  //---------------------------------------------------------------------
-  // QRMode
-  //---------------------------------------------------------------------
-
-  var QRMode = {
-    MODE_NUMBER :    1 << 0,
-    MODE_ALPHA_NUM : 1 << 1,
-    MODE_8BIT_BYTE : 1 << 2,
-    MODE_KANJI :     1 << 3
-  };
-
-  //---------------------------------------------------------------------
-  // QRErrorCorrectionLevel
-  //---------------------------------------------------------------------
-
-  var QRErrorCorrectionLevel = {
-    L : 1,
-    M : 0,
-    Q : 3,
-    H : 2
-  };
-
-  //---------------------------------------------------------------------
-  // QRMaskPattern
-  //---------------------------------------------------------------------
-
-  var QRMaskPattern = {
-    PATTERN000 : 0,
-    PATTERN001 : 1,
-    PATTERN010 : 2,
-    PATTERN011 : 3,
-    PATTERN100 : 4,
-    PATTERN101 : 5,
-    PATTERN110 : 6,
-    PATTERN111 : 7
-  };
-
-  //---------------------------------------------------------------------
-  // QRUtil
-  //---------------------------------------------------------------------
-
-  var QRUtil = function() {
-
-    var PATTERN_POSITION_TABLE = [
-      [],
-      [6, 18],
-      [6, 22],
-      [6, 26],
-      [6, 30],
-      [6, 34],
-      [6, 22, 38],
-      [6, 24, 42],
-      [6, 26, 46],
-      [6, 28, 50],
-      [6, 30, 54],
-      [6, 32, 58],
-      [6, 34, 62],
-      [6, 26, 46, 66],
-      [6, 26, 48, 70],
-      [6, 26, 50, 74],
-      [6, 30, 54, 78],
-      [6, 30, 56, 82],
-      [6, 30, 58, 86],
-      [6, 34, 62, 90],
-      [6, 28, 50, 72, 94],
-      [6, 26, 50, 74, 98],
-      [6, 30, 54, 78, 102],
-      [6, 28, 54, 80, 106],
-      [6, 32, 58, 84, 110],
-      [6, 30, 58, 86, 114],
-      [6, 34, 62, 90, 118],
-      [6, 26, 50, 74, 98, 122],
-      [6, 30, 54, 78, 102, 126],
-      [6, 26, 52, 78, 104, 130],
-      [6, 30, 56, 82, 108, 134],
-      [6, 34, 60, 86, 112, 138],
-      [6, 30, 58, 86, 114, 142],
-      [6, 34, 62, 90, 118, 146],
-      [6, 30, 54, 78, 102, 126, 150],
-      [6, 24, 50, 76, 102, 128, 154],
-      [6, 28, 54, 80, 106, 132, 158],
-      [6, 32, 58, 84, 110, 136, 162],
-      [6, 26, 54, 82, 110, 138, 166],
-      [6, 30, 58, 86, 114, 142, 170]
-    ];
-    var G15 = (1 << 10) | (1 << 8) | (1 << 5) | (1 << 4) | (1 << 2) | (1 << 1) | (1 << 0);
-    var G18 = (1 << 12) | (1 << 11) | (1 << 10) | (1 << 9) | (1 << 8) | (1 << 5) | (1 << 2) | (1 << 0);
-    var G15_MASK = (1 << 14) | (1 << 12) | (1 << 10) | (1 << 4) | (1 << 1);
-
-    var _this = {};
-
-    var getBCHDigit = function(data) {
-      var digit = 0;
-      while (data != 0) {
-        digit += 1;
-        data >>>= 1;
-      }
-      return digit;
-    };
-
-    _this.getBCHTypeInfo = function(data) {
-      var d = data << 10;
-      while (getBCHDigit(d) - getBCHDigit(G15) >= 0) {
-        d ^= (G15 << (getBCHDigit(d) - getBCHDigit(G15) ) );
-      }
-      return ( (data << 10) | d) ^ G15_MASK;
-    };
-
-    _this.getBCHTypeNumber = function(data) {
-      var d = data << 12;
-      while (getBCHDigit(d) - getBCHDigit(G18) >= 0) {
-        d ^= (G18 << (getBCHDigit(d) - getBCHDigit(G18) ) );
-      }
-      return (data << 12) | d;
-    };
-
-    _this.getPatternPosition = function(typeNumber) {
-      return PATTERN_POSITION_TABLE[typeNumber - 1];
-    };
-
-    _this.getMaskFunction = function(maskPattern) {
-
-      switch (maskPattern) {
-
-      case QRMaskPattern.PATTERN000 :
-        return function(i, j) { return (i + j) % 2 == 0; };
-      case QRMaskPattern.PATTERN001 :
-        return function(i, j) { return i % 2 == 0; };
-      case QRMaskPattern.PATTERN010 :
-        return function(i, j) { return j % 3 == 0; };
-      case QRMaskPattern.PATTERN011 :
-        return function(i, j) { return (i + j) % 3 == 0; };
-      case QRMaskPattern.PATTERN100 :
-        return function(i, j) { return (Math.floor(i / 2) + Math.floor(j / 3) ) % 2 == 0; };
-      case QRMaskPattern.PATTERN101 :
-        return function(i, j) { return (i * j) % 2 + (i * j) % 3 == 0; };
-      case QRMaskPattern.PATTERN110 :
-        return function(i, j) { return ( (i * j) % 2 + (i * j) % 3) % 2 == 0; };
-      case QRMaskPattern.PATTERN111 :
-        return function(i, j) { return ( (i * j) % 3 + (i + j) % 2) % 2 == 0; };
-
-      default :
-        throw 'bad maskPattern:' + maskPattern;
-      }
-    };
-
-    _this.getErrorCorrectPolynomial = function(errorCorrectLength) {
-      var a = qrPolynomial([1], 0);
-      for (var i = 0; i < errorCorrectLength; i += 1) {
-        a = a.multiply(qrPolynomial([1, QRMath.gexp(i)], 0) );
-      }
-      return a;
-    };
-
-    _this.getLengthInBits = function(mode, type) {
-
-      if (1 <= type && type < 10) {
-
-        // 1 - 9
-
-        switch(mode) {
-        case QRMode.MODE_NUMBER    : return 10;
-        case QRMode.MODE_ALPHA_NUM : return 9;
-        case QRMode.MODE_8BIT_BYTE : return 8;
-        case QRMode.MODE_KANJI     : return 8;
-        default :
-          throw 'mode:' + mode;
-        }
-
-      } else if (type < 27) {
-
-        // 10 - 26
-
-        switch(mode) {
-        case QRMode.MODE_NUMBER    : return 12;
-        case QRMode.MODE_ALPHA_NUM : return 11;
-        case QRMode.MODE_8BIT_BYTE : return 16;
-        case QRMode.MODE_KANJI     : return 10;
-        default :
-          throw 'mode:' + mode;
-        }
-
-      } else if (type < 41) {
-
-        // 27 - 40
-
-        switch(mode) {
-        case QRMode.MODE_NUMBER    : return 14;
-        case QRMode.MODE_ALPHA_NUM : return 13;
-        case QRMode.MODE_8BIT_BYTE : return 16;
-        case QRMode.MODE_KANJI     : return 12;
-        default :
-          throw 'mode:' + mode;
-        }
-
-      } else {
-        throw 'type:' + type;
-      }
-    };
-
-    _this.getLostPoint = function(qrcode) {
-
-      var moduleCount = qrcode.getModuleCount();
-
-      var lostPoint = 0;
-
-      // LEVEL1
-
-      for (var row = 0; row < moduleCount; row += 1) {
-        for (var col = 0; col < moduleCount; col += 1) {
-
-          var sameCount = 0;
-          var dark = qrcode.isDark(row, col);
-
-          for (var r = -1; r <= 1; r += 1) {
-
-            if (row + r < 0 || moduleCount <= row + r) {
-              continue;
-            }
-
-            for (var c = -1; c <= 1; c += 1) {
-
-              if (col + c < 0 || moduleCount <= col + c) {
-                continue;
-              }
-
-              if (r == 0 && c == 0) {
-                continue;
-              }
-
-              if (dark == qrcode.isDark(row + r, col + c) ) {
-                sameCount += 1;
-              }
-            }
-          }
-
-          if (sameCount > 5) {
-            lostPoint += (3 + sameCount - 5);
-          }
-        }
-      };
-
-      // LEVEL2
-
-      for (var row = 0; row < moduleCount - 1; row += 1) {
-        for (var col = 0; col < moduleCount - 1; col += 1) {
-          var count = 0;
-          if (qrcode.isDark(row, col) ) count += 1;
-          if (qrcode.isDark(row + 1, col) ) count += 1;
-          if (qrcode.isDark(row, col + 1) ) count += 1;
-          if (qrcode.isDark(row + 1, col + 1) ) count += 1;
-          if (count == 0 || count == 4) {
-            lostPoint += 3;
-          }
-        }
-      }
-
-      // LEVEL3
-
-      for (var row = 0; row < moduleCount; row += 1) {
-        for (var col = 0; col < moduleCount - 6; col += 1) {
-          if (qrcode.isDark(row, col)
-              && !qrcode.isDark(row, col + 1)
-              &&  qrcode.isDark(row, col + 2)
-              &&  qrcode.isDark(row, col + 3)
-              &&  qrcode.isDark(row, col + 4)
-              && !qrcode.isDark(row, col + 5)
-              &&  qrcode.isDark(row, col + 6) ) {
-            lostPoint += 40;
-          }
-        }
-      }
-
-      for (var col = 0; col < moduleCount; col += 1) {
-        for (var row = 0; row < moduleCount - 6; row += 1) {
-          if (qrcode.isDark(row, col)
-              && !qrcode.isDark(row + 1, col)
-              &&  qrcode.isDark(row + 2, col)
-              &&  qrcode.isDark(row + 3, col)
-              &&  qrcode.isDark(row + 4, col)
-              && !qrcode.isDark(row + 5, col)
-              &&  qrcode.isDark(row + 6, col) ) {
-            lostPoint += 40;
-          }
-        }
-      }
-
-      // LEVEL4
-
-      var darkCount = 0;
-
-      for (var col = 0; col < moduleCount; col += 1) {
-        for (var row = 0; row < moduleCount; row += 1) {
-          if (qrcode.isDark(row, col) ) {
-            darkCount += 1;
-          }
-        }
-      }
-
-      var ratio = Math.abs(100 * darkCount / moduleCount / moduleCount - 50) / 5;
-      lostPoint += ratio * 10;
-
-      return lostPoint;
-    };
-
-    return _this;
-  }();
-
-  //---------------------------------------------------------------------
-  // QRMath
-  //---------------------------------------------------------------------
-
-  var QRMath = function() {
-
-    var EXP_TABLE = new Array(256);
-    var LOG_TABLE = new Array(256);
-
-    // initialize tables
-    for (var i = 0; i < 8; i += 1) {
-      EXP_TABLE[i] = 1 << i;
-    }
-    for (var i = 8; i < 256; i += 1) {
-      EXP_TABLE[i] = EXP_TABLE[i - 4]
-        ^ EXP_TABLE[i - 5]
-        ^ EXP_TABLE[i - 6]
-        ^ EXP_TABLE[i - 8];
-    }
-    for (var i = 0; i < 255; i += 1) {
-      LOG_TABLE[EXP_TABLE[i] ] = i;
-    }
-
-    var _this = {};
-
-    _this.glog = function(n) {
-
-      if (n < 1) {
-        throw 'glog(' + n + ')';
-      }
-
-      return LOG_TABLE[n];
-    };
-
-    _this.gexp = function(n) {
-
-      while (n < 0) {
-        n += 255;
-      }
-
-      while (n >= 256) {
-        n -= 255;
-      }
-
-      return EXP_TABLE[n];
-    };
-
-    return _this;
-  }();
-
-  //---------------------------------------------------------------------
-  // qrPolynomial
-  //---------------------------------------------------------------------
-
-  function qrPolynomial(num, shift) {
-
-    if (typeof num.length == 'undefined') {
-      throw num.length + '/' + shift;
-    }
-
-    var _num = function() {
-      var offset = 0;
-      while (offset < num.length && num[offset] == 0) {
-        offset += 1;
-      }
-      var _num = new Array(num.length - offset + shift);
-      for (var i = 0; i < num.length - offset; i += 1) {
-        _num[i] = num[i + offset];
-      }
-      return _num;
-    }();
-
-    var _this = {};
-
-    _this.getAt = function(index) {
-      return _num[index];
-    };
-
-    _this.getLength = function() {
-      return _num.length;
-    };
-
-    _this.multiply = function(e) {
-
-      var num = new Array(_this.getLength() + e.getLength() - 1);
-
-      for (var i = 0; i < _this.getLength(); i += 1) {
-        for (var j = 0; j < e.getLength(); j += 1) {
-          num[i + j] ^= QRMath.gexp(QRMath.glog(_this.getAt(i) ) + QRMath.glog(e.getAt(j) ) );
-        }
-      }
-
-      return qrPolynomial(num, 0);
-    };
-
-    _this.mod = function(e) {
-
-      if (_this.getLength() - e.getLength() < 0) {
-        return _this;
-      }
-
-      var ratio = QRMath.glog(_this.getAt(0) ) - QRMath.glog(e.getAt(0) );
-
-      var num = new Array(_this.getLength() );
-      for (var i = 0; i < _this.getLength(); i += 1) {
-        num[i] = _this.getAt(i);
-      }
-
-      for (var i = 0; i < e.getLength(); i += 1) {
-        num[i] ^= QRMath.gexp(QRMath.glog(e.getAt(i) ) + ratio);
-      }
-
-      // recursive call
-      return qrPolynomial(num, 0).mod(e);
-    };
-
-    return _this;
-  };
-
-  //---------------------------------------------------------------------
-  // QRRSBlock
-  //---------------------------------------------------------------------
-
-  var QRRSBlock = function() {
-
-    var RS_BLOCK_TABLE = [
-
-      // L
-      // M
-      // Q
-      // H
-
-      // 1
-      [1, 26, 19],
-      [1, 26, 16],
-      [1, 26, 13],
-      [1, 26, 9],
-
-      // 2
-      [1, 44, 34],
-      [1, 44, 28],
-      [1, 44, 22],
-      [1, 44, 16],
-
-      // 3
-      [1, 70, 55],
-      [1, 70, 44],
-      [2, 35, 17],
-      [2, 35, 13],
-
-      // 4
-      [1, 100, 80],
-      [2, 50, 32],
-      [2, 50, 24],
-      [4, 25, 9],
-
-      // 5
-      [1, 134, 108],
-      [2, 67, 43],
-      [2, 33, 15, 2, 34, 16],
-      [2, 33, 11, 2, 34, 12],
-
-      // 6
-      [2, 86, 68],
-      [4, 43, 27],
-      [4, 43, 19],
-      [4, 43, 15],
-
-      // 7
-      [2, 98, 78],
-      [4, 49, 31],
-      [2, 32, 14, 4, 33, 15],
-      [4, 39, 13, 1, 40, 14],
-
-      // 8
-      [2, 121, 97],
-      [2, 60, 38, 2, 61, 39],
-      [4, 40, 18, 2, 41, 19],
-      [4, 40, 14, 2, 41, 15],
-
-      // 9
-      [2, 146, 116],
-      [3, 58, 36, 2, 59, 37],
-      [4, 36, 16, 4, 37, 17],
-      [4, 36, 12, 4, 37, 13],
-
-      // 10
-      [2, 86, 68, 2, 87, 69],
-      [4, 69, 43, 1, 70, 44],
-      [6, 43, 19, 2, 44, 20],
-      [6, 43, 15, 2, 44, 16],
-
-      // 11
-      [4, 101, 81],
-      [1, 80, 50, 4, 81, 51],
-      [4, 50, 22, 4, 51, 23],
-      [3, 36, 12, 8, 37, 13],
-
-      // 12
-      [2, 116, 92, 2, 117, 93],
-      [6, 58, 36, 2, 59, 37],
-      [4, 46, 20, 6, 47, 21],
-      [7, 42, 14, 4, 43, 15],
-
-      // 13
-      [4, 133, 107],
-      [8, 59, 37, 1, 60, 38],
-      [8, 44, 20, 4, 45, 21],
-      [12, 33, 11, 4, 34, 12],
-
-      // 14
-      [3, 145, 115, 1, 146, 116],
-      [4, 64, 40, 5, 65, 41],
-      [11, 36, 16, 5, 37, 17],
-      [11, 36, 12, 5, 37, 13],
-
-      // 15
-      [5, 109, 87, 1, 110, 88],
-      [5, 65, 41, 5, 66, 42],
-      [5, 54, 24, 7, 55, 25],
-      [11, 36, 12, 7, 37, 13],
-
-      // 16
-      [5, 122, 98, 1, 123, 99],
-      [7, 73, 45, 3, 74, 46],
-      [15, 43, 19, 2, 44, 20],
-      [3, 45, 15, 13, 46, 16],
-
-      // 17
-      [1, 135, 107, 5, 136, 108],
-      [10, 74, 46, 1, 75, 47],
-      [1, 50, 22, 15, 51, 23],
-      [2, 42, 14, 17, 43, 15],
-
-      // 18
-      [5, 150, 120, 1, 151, 121],
-      [9, 69, 43, 4, 70, 44],
-      [17, 50, 22, 1, 51, 23],
-      [2, 42, 14, 19, 43, 15],
-
-      // 19
-      [3, 141, 113, 4, 142, 114],
-      [3, 70, 44, 11, 71, 45],
-      [17, 47, 21, 4, 48, 22],
-      [9, 39, 13, 16, 40, 14],
-
-      // 20
-      [3, 135, 107, 5, 136, 108],
-      [3, 67, 41, 13, 68, 42],
-      [15, 54, 24, 5, 55, 25],
-      [15, 43, 15, 10, 44, 16],
-
-      // 21
-      [4, 144, 116, 4, 145, 117],
-      [17, 68, 42],
-      [17, 50, 22, 6, 51, 23],
-      [19, 46, 16, 6, 47, 17],
-
-      // 22
-      [2, 139, 111, 7, 140, 112],
-      [17, 74, 46],
-      [7, 54, 24, 16, 55, 25],
-      [34, 37, 13],
-
-      // 23
-      [4, 151, 121, 5, 152, 122],
-      [4, 75, 47, 14, 76, 48],
-      [11, 54, 24, 14, 55, 25],
-      [16, 45, 15, 14, 46, 16],
-
-      // 24
-      [6, 147, 117, 4, 148, 118],
-      [6, 73, 45, 14, 74, 46],
-      [11, 54, 24, 16, 55, 25],
-      [30, 46, 16, 2, 47, 17],
-
-      // 25
-      [8, 132, 106, 4, 133, 107],
-      [8, 75, 47, 13, 76, 48],
-      [7, 54, 24, 22, 55, 25],
-      [22, 45, 15, 13, 46, 16],
-
-      // 26
-      [10, 142, 114, 2, 143, 115],
-      [19, 74, 46, 4, 75, 47],
-      [28, 50, 22, 6, 51, 23],
-      [33, 46, 16, 4, 47, 17],
-
-      // 27
-      [8, 152, 122, 4, 153, 123],
-      [22, 73, 45, 3, 74, 46],
-      [8, 53, 23, 26, 54, 24],
-      [12, 45, 15, 28, 46, 16],
-
-      // 28
-      [3, 147, 117, 10, 148, 118],
-      [3, 73, 45, 23, 74, 46],
-      [4, 54, 24, 31, 55, 25],
-      [11, 45, 15, 31, 46, 16],
-
-      // 29
-      [7, 146, 116, 7, 147, 117],
-      [21, 73, 45, 7, 74, 46],
-      [1, 53, 23, 37, 54, 24],
-      [19, 45, 15, 26, 46, 16],
-
-      // 30
-      [5, 145, 115, 10, 146, 116],
-      [19, 75, 47, 10, 76, 48],
-      [15, 54, 24, 25, 55, 25],
-      [23, 45, 15, 25, 46, 16],
-
-      // 31
-      [13, 145, 115, 3, 146, 116],
-      [2, 74, 46, 29, 75, 47],
-      [42, 54, 24, 1, 55, 25],
-      [23, 45, 15, 28, 46, 16],
-
-      // 32
-      [17, 145, 115],
-      [10, 74, 46, 23, 75, 47],
-      [10, 54, 24, 35, 55, 25],
-      [19, 45, 15, 35, 46, 16],
-
-      // 33
-      [17, 145, 115, 1, 146, 116],
-      [14, 74, 46, 21, 75, 47],
-      [29, 54, 24, 19, 55, 25],
-      [11, 45, 15, 46, 46, 16],
-
-      // 34
-      [13, 145, 115, 6, 146, 116],
-      [14, 74, 46, 23, 75, 47],
-      [44, 54, 24, 7, 55, 25],
-      [59, 46, 16, 1, 47, 17],
-
-      // 35
-      [12, 151, 121, 7, 152, 122],
-      [12, 75, 47, 26, 76, 48],
-      [39, 54, 24, 14, 55, 25],
-      [22, 45, 15, 41, 46, 16],
-
-      // 36
-      [6, 151, 121, 14, 152, 122],
-      [6, 75, 47, 34, 76, 48],
-      [46, 54, 24, 10, 55, 25],
-      [2, 45, 15, 64, 46, 16],
-
-      // 37
-      [17, 152, 122, 4, 153, 123],
-      [29, 74, 46, 14, 75, 47],
-      [49, 54, 24, 10, 55, 25],
-      [24, 45, 15, 46, 46, 16],
-
-      // 38
-      [4, 152, 122, 18, 153, 123],
-      [13, 74, 46, 32, 75, 47],
-      [48, 54, 24, 14, 55, 25],
-      [42, 45, 15, 32, 46, 16],
-
-      // 39
-      [20, 147, 117, 4, 148, 118],
-      [40, 75, 47, 7, 76, 48],
-      [43, 54, 24, 22, 55, 25],
-      [10, 45, 15, 67, 46, 16],
-
-      // 40
-      [19, 148, 118, 6, 149, 119],
-      [18, 75, 47, 31, 76, 48],
-      [34, 54, 24, 34, 55, 25],
-      [20, 45, 15, 61, 46, 16]
-    ];
-
-    var qrRSBlock = function(totalCount, dataCount) {
-      var _this = {};
-      _this.totalCount = totalCount;
-      _this.dataCount = dataCount;
-      return _this;
-    };
-
-    var _this = {};
-
-    var getRsBlockTable = function(typeNumber, errorCorrectionLevel) {
-
-      switch(errorCorrectionLevel) {
-      case QRErrorCorrectionLevel.L :
-        return RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 0];
-      case QRErrorCorrectionLevel.M :
-        return RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 1];
-      case QRErrorCorrectionLevel.Q :
-        return RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 2];
-      case QRErrorCorrectionLevel.H :
-        return RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 3];
-      default :
-        return undefined;
-      }
-    };
-
-    _this.getRSBlocks = function(typeNumber, errorCorrectionLevel) {
-
-      var rsBlock = getRsBlockTable(typeNumber, errorCorrectionLevel);
-
-      if (typeof rsBlock == 'undefined') {
-        throw 'bad rs block @ typeNumber:' + typeNumber +
-            '/errorCorrectionLevel:' + errorCorrectionLevel;
-      }
-
-      var length = rsBlock.length / 3;
-
-      var list = [];
-
-      for (var i = 0; i < length; i += 1) {
-
-        var count = rsBlock[i * 3 + 0];
-        var totalCount = rsBlock[i * 3 + 1];
-        var dataCount = rsBlock[i * 3 + 2];
-
-        for (var j = 0; j < count; j += 1) {
-          list.push(qrRSBlock(totalCount, dataCount) );
-        }
-      }
-
-      return list;
-    };
-
-    return _this;
-  }();
-
-  //---------------------------------------------------------------------
-  // qrBitBuffer
-  //---------------------------------------------------------------------
-
-  var qrBitBuffer = function() {
-
-    var _buffer = [];
-    var _length = 0;
-
-    var _this = {};
-
-    _this.getBuffer = function() {
-      return _buffer;
-    };
-
-    _this.getAt = function(index) {
-      var bufIndex = Math.floor(index / 8);
-      return ( (_buffer[bufIndex] >>> (7 - index % 8) ) & 1) == 1;
-    };
-
-    _this.put = function(num, length) {
-      for (var i = 0; i < length; i += 1) {
-        _this.putBit( ( (num >>> (length - i - 1) ) & 1) == 1);
-      }
-    };
-
-    _this.getLengthInBits = function() {
-      return _length;
-    };
-
-    _this.putBit = function(bit) {
-
-      var bufIndex = Math.floor(_length / 8);
-      if (_buffer.length <= bufIndex) {
-        _buffer.push(0);
-      }
-
-      if (bit) {
-        _buffer[bufIndex] |= (0x80 >>> (_length % 8) );
-      }
-
-      _length += 1;
-    };
-
-    return _this;
-  };
-
-  //---------------------------------------------------------------------
-  // qrNumber
-  //---------------------------------------------------------------------
-
-  var qrNumber = function(data) {
-
-    var _mode = QRMode.MODE_NUMBER;
-    var _data = data;
-
-    var _this = {};
-
-    _this.getMode = function() {
-      return _mode;
-    };
-
-    _this.getLength = function(buffer) {
-      return _data.length;
-    };
-
-    _this.write = function(buffer) {
-
-      var data = _data;
-
-      var i = 0;
-
-      while (i + 2 < data.length) {
-        buffer.put(strToNum(data.substring(i, i + 3) ), 10);
-        i += 3;
-      }
-
-      if (i < data.length) {
-        if (data.length - i == 1) {
-          buffer.put(strToNum(data.substring(i, i + 1) ), 4);
-        } else if (data.length - i == 2) {
-          buffer.put(strToNum(data.substring(i, i + 2) ), 7);
-        }
-      }
-    };
-
-    var strToNum = function(s) {
-      var num = 0;
-      for (var i = 0; i < s.length; i += 1) {
-        num = num * 10 + chatToNum(s.charAt(i) );
-      }
-      return num;
-    };
-
-    var chatToNum = function(c) {
-      if ('0' <= c && c <= '9') {
-        return c.charCodeAt(0) - '0'.charCodeAt(0);
-      }
-      throw 'illegal char :' + c;
-    };
-
-    return _this;
-  };
-
-  //---------------------------------------------------------------------
-  // qrAlphaNum
-  //---------------------------------------------------------------------
-
-  var qrAlphaNum = function(data) {
-
-    var _mode = QRMode.MODE_ALPHA_NUM;
-    var _data = data;
-
-    var _this = {};
-
-    _this.getMode = function() {
-      return _mode;
-    };
-
-    _this.getLength = function(buffer) {
-      return _data.length;
-    };
-
-    _this.write = function(buffer) {
-
-      var s = _data;
-
-      var i = 0;
-
-      while (i + 1 < s.length) {
-        buffer.put(
-          getCode(s.charAt(i) ) * 45 +
-          getCode(s.charAt(i + 1) ), 11);
-        i += 2;
-      }
-
-      if (i < s.length) {
-        buffer.put(getCode(s.charAt(i) ), 6);
-      }
-    };
-
-    var getCode = function(c) {
-
-      if ('0' <= c && c <= '9') {
-        return c.charCodeAt(0) - '0'.charCodeAt(0);
-      } else if ('A' <= c && c <= 'Z') {
-        return c.charCodeAt(0) - 'A'.charCodeAt(0) + 10;
-      } else {
-        switch (c) {
-        case ' ' : return 36;
-        case '$' : return 37;
-        case '%' : return 38;
-        case '*' : return 39;
-        case '+' : return 40;
-        case '-' : return 41;
-        case '.' : return 42;
-        case '/' : return 43;
-        case ':' : return 44;
-        default :
-          throw 'illegal char :' + c;
-        }
-      }
-    };
-
-    return _this;
-  };
-
-  //---------------------------------------------------------------------
-  // qr8BitByte
-  //---------------------------------------------------------------------
-
-  var qr8BitByte = function(data) {
-
-    var _mode = QRMode.MODE_8BIT_BYTE;
-    var _data = data;
-    var _bytes = qrcode.stringToBytes(data);
-
-    var _this = {};
-
-    _this.getMode = function() {
-      return _mode;
-    };
-
-    _this.getLength = function(buffer) {
-      return _bytes.length;
-    };
-
-    _this.write = function(buffer) {
-      for (var i = 0; i < _bytes.length; i += 1) {
-        buffer.put(_bytes[i], 8);
-      }
-    };
-
-    return _this;
-  };
-
-  //---------------------------------------------------------------------
-  // qrKanji
-  //---------------------------------------------------------------------
-
-  var qrKanji = function(data) {
-
-    var _mode = QRMode.MODE_KANJI;
-    var _data = data;
-
-    var stringToBytes = qrcode.stringToBytesFuncs['SJIS'];
-    if (!stringToBytes) {
-      throw 'sjis not supported.';
-    }
-    !function(c, code) {
-      // self test for sjis support.
-      var test = stringToBytes(c);
-      if (test.length != 2 || ( (test[0] << 8) | test[1]) != code) {
-        throw 'sjis not supported.';
-      }
-    }('\u53cb', 0x9746);
-
-    var _bytes = stringToBytes(data);
-
-    var _this = {};
-
-    _this.getMode = function() {
-      return _mode;
-    };
-
-    _this.getLength = function(buffer) {
-      return ~~(_bytes.length / 2);
-    };
-
-    _this.write = function(buffer) {
-
-      var data = _bytes;
-
-      var i = 0;
-
-      while (i + 1 < data.length) {
-
-        var c = ( (0xff & data[i]) << 8) | (0xff & data[i + 1]);
-
-        if (0x8140 <= c && c <= 0x9FFC) {
-          c -= 0x8140;
-        } else if (0xE040 <= c && c <= 0xEBBF) {
-          c -= 0xC140;
-        } else {
-          throw 'illegal char at ' + (i + 1) + '/' + c;
-        }
-
-        c = ( (c >>> 8) & 0xff) * 0xC0 + (c & 0xff);
-
-        buffer.put(c, 13);
-
-        i += 2;
-      }
-
-      if (i < data.length) {
-        throw 'illegal char at ' + (i + 1);
-      }
-    };
-
-    return _this;
-  };
-
-  //=====================================================================
-  // GIF Support etc.
-  //
-
-  //---------------------------------------------------------------------
-  // byteArrayOutputStream
-  //---------------------------------------------------------------------
-
-  var byteArrayOutputStream = function() {
-
-    var _bytes = [];
-
-    var _this = {};
-
-    _this.writeByte = function(b) {
-      _bytes.push(b & 0xff);
-    };
-
-    _this.writeShort = function(i) {
-      _this.writeByte(i);
-      _this.writeByte(i >>> 8);
-    };
-
-    _this.writeBytes = function(b, off, len) {
-      off = off || 0;
-      len = len || b.length;
-      for (var i = 0; i < len; i += 1) {
-        _this.writeByte(b[i + off]);
-      }
-    };
-
-    _this.writeString = function(s) {
-      for (var i = 0; i < s.length; i += 1) {
-        _this.writeByte(s.charCodeAt(i) );
-      }
-    };
-
-    _this.toByteArray = function() {
-      return _bytes;
-    };
-
-    _this.toString = function() {
-      var s = '';
-      s += '[';
-      for (var i = 0; i < _bytes.length; i += 1) {
-        if (i > 0) {
-          s += ',';
-        }
-        s += _bytes[i];
-      }
-      s += ']';
-      return s;
-    };
-
-    return _this;
-  };
-
-  //---------------------------------------------------------------------
-  // base64EncodeOutputStream
-  //---------------------------------------------------------------------
-
-  var base64EncodeOutputStream = function() {
-
-    var _buffer = 0;
-    var _buflen = 0;
-    var _length = 0;
-    var _base64 = '';
-
-    var _this = {};
-
-    var writeEncoded = function(b) {
-      _base64 += String.fromCharCode(encode(b & 0x3f) );
-    };
-
-    var encode = function(n) {
-      if (n < 0) {
-        // error.
-      } else if (n < 26) {
-        return 0x41 + n;
-      } else if (n < 52) {
-        return 0x61 + (n - 26);
-      } else if (n < 62) {
-        return 0x30 + (n - 52);
-      } else if (n == 62) {
-        return 0x2b;
-      } else if (n == 63) {
-        return 0x2f;
-      }
-      throw 'n:' + n;
-    };
-
-    _this.writeByte = function(n) {
-
-      _buffer = (_buffer << 8) | (n & 0xff);
-      _buflen += 8;
-      _length += 1;
-
-      while (_buflen >= 6) {
-        writeEncoded(_buffer >>> (_buflen - 6) );
-        _buflen -= 6;
-      }
-    };
-
-    _this.flush = function() {
-
-      if (_buflen > 0) {
-        writeEncoded(_buffer << (6 - _buflen) );
-        _buffer = 0;
-        _buflen = 0;
-      }
-
-      if (_length % 3 != 0) {
-        // padding
-        var padlen = 3 - _length % 3;
-        for (var i = 0; i < padlen; i += 1) {
-          _base64 += '=';
-        }
-      }
-    };
-
-    _this.toString = function() {
-      return _base64;
-    };
-
-    return _this;
-  };
-
-  //---------------------------------------------------------------------
-  // base64DecodeInputStream
-  //---------------------------------------------------------------------
-
-  var base64DecodeInputStream = function(str) {
-
-    var _str = str;
-    var _pos = 0;
-    var _buffer = 0;
-    var _buflen = 0;
-
-    var _this = {};
-
-    _this.read = function() {
-
-      while (_buflen < 8) {
-
-        if (_pos >= _str.length) {
-          if (_buflen == 0) {
-            return -1;
-          }
-          throw 'unexpected end of file./' + _buflen;
-        }
-
-        var c = _str.charAt(_pos);
-        _pos += 1;
-
-        if (c == '=') {
-          _buflen = 0;
-          return -1;
-        } else if (c.match(/^\s$/) ) {
-          // ignore if whitespace.
-          continue;
-        }
-
-        _buffer = (_buffer << 6) | decode(c.charCodeAt(0) );
-        _buflen += 6;
-      }
-
-      var n = (_buffer >>> (_buflen - 8) ) & 0xff;
-      _buflen -= 8;
-      return n;
-    };
-
-    var decode = function(c) {
-      if (0x41 <= c && c <= 0x5a) {
-        return c - 0x41;
-      } else if (0x61 <= c && c <= 0x7a) {
-        return c - 0x61 + 26;
-      } else if (0x30 <= c && c <= 0x39) {
-        return c - 0x30 + 52;
-      } else if (c == 0x2b) {
-        return 62;
-      } else if (c == 0x2f) {
-        return 63;
-      } else {
-        throw 'c:' + c;
-      }
-    };
-
-    return _this;
-  };
-
-  //---------------------------------------------------------------------
-  // gifImage (B/W)
-  //---------------------------------------------------------------------
-
-  var gifImage = function(width, height) {
-
-    var _width = width;
-    var _height = height;
-    var _data = new Array(width * height);
-
-    var _this = {};
-
-    _this.setPixel = function(x, y, pixel) {
-      _data[y * _width + x] = pixel;
-    };
-
-    _this.write = function(out) {
-
-      //---------------------------------
-      // GIF Signature
-
-      out.writeString('GIF87a');
-
-      //---------------------------------
-      // Screen Descriptor
-
-      out.writeShort(_width);
-      out.writeShort(_height);
-
-      out.writeByte(0x80); // 2bit
-      out.writeByte(0);
-      out.writeByte(0);
-
-      //---------------------------------
-      // Global Color Map
-
-      // black
-      out.writeByte(0x00);
-      out.writeByte(0x00);
-      out.writeByte(0x00);
-
-      // white
-      out.writeByte(0xff);
-      out.writeByte(0xff);
-      out.writeByte(0xff);
-
-      //---------------------------------
-      // Image Descriptor
-
-      out.writeString(',');
-      out.writeShort(0);
-      out.writeShort(0);
-      out.writeShort(_width);
-      out.writeShort(_height);
-      out.writeByte(0);
-
-      //---------------------------------
-      // Local Color Map
-
-      //---------------------------------
-      // Raster Data
-
-      var lzwMinCodeSize = 2;
-      var raster = getLZWRaster(lzwMinCodeSize);
-
-      out.writeByte(lzwMinCodeSize);
-
-      var offset = 0;
-
-      while (raster.length - offset > 255) {
-        out.writeByte(255);
-        out.writeBytes(raster, offset, 255);
-        offset += 255;
-      }
-
-      out.writeByte(raster.length - offset);
-      out.writeBytes(raster, offset, raster.length - offset);
-      out.writeByte(0x00);
-
-      //---------------------------------
-      // GIF Terminator
-      out.writeString(';');
-    };
-
-    var bitOutputStream = function(out) {
-
-      var _out = out;
-      var _bitLength = 0;
-      var _bitBuffer = 0;
-
-      var _this = {};
-
-      _this.write = function(data, length) {
-
-        if ( (data >>> length) != 0) {
-          throw 'length over';
-        }
-
-        while (_bitLength + length >= 8) {
-          _out.writeByte(0xff & ( (data << _bitLength) | _bitBuffer) );
-          length -= (8 - _bitLength);
-          data >>>= (8 - _bitLength);
-          _bitBuffer = 0;
-          _bitLength = 0;
-        }
-
-        _bitBuffer = (data << _bitLength) | _bitBuffer;
-        _bitLength = _bitLength + length;
-      };
-
-      _this.flush = function() {
-        if (_bitLength > 0) {
-          _out.writeByte(_bitBuffer);
-        }
-      };
-
-      return _this;
-    };
-
-    var getLZWRaster = function(lzwMinCodeSize) {
-
-      var clearCode = 1 << lzwMinCodeSize;
-      var endCode = (1 << lzwMinCodeSize) + 1;
-      var bitLength = lzwMinCodeSize + 1;
-
-      // Setup LZWTable
-      var table = lzwTable();
-
-      for (var i = 0; i < clearCode; i += 1) {
-        table.add(String.fromCharCode(i) );
-      }
-      table.add(String.fromCharCode(clearCode) );
-      table.add(String.fromCharCode(endCode) );
-
-      var byteOut = byteArrayOutputStream();
-      var bitOut = bitOutputStream(byteOut);
-
-      // clear code
-      bitOut.write(clearCode, bitLength);
-
-      var dataIndex = 0;
-
-      var s = String.fromCharCode(_data[dataIndex]);
-      dataIndex += 1;
-
-      while (dataIndex < _data.length) {
-
-        var c = String.fromCharCode(_data[dataIndex]);
-        dataIndex += 1;
-
-        if (table.contains(s + c) ) {
-
-          s = s + c;
-
-        } else {
-
-          bitOut.write(table.indexOf(s), bitLength);
-
-          if (table.size() < 0xfff) {
-
-            if (table.size() == (1 << bitLength) ) {
-              bitLength += 1;
-            }
-
-            table.add(s + c);
-          }
-
-          s = c;
-        }
-      }
-
-      bitOut.write(table.indexOf(s), bitLength);
-
-      // end code
-      bitOut.write(endCode, bitLength);
-
-      bitOut.flush();
-
-      return byteOut.toByteArray();
-    };
-
-    var lzwTable = function() {
-
-      var _map = {};
-      var _size = 0;
-
-      var _this = {};
-
-      _this.add = function(key) {
-        if (_this.contains(key) ) {
-          throw 'dup key:' + key;
-        }
-        _map[key] = _size;
-        _size += 1;
-      };
-
-      _this.size = function() {
-        return _size;
-      };
-
-      _this.indexOf = function(key) {
-        return _map[key];
-      };
-
-      _this.contains = function(key) {
-        return typeof _map[key] != 'undefined';
-      };
-
-      return _this;
-    };
-
-    return _this;
-  };
-
-  var createDataURL = function(width, height, getPixel) {
-    var gif = gifImage(width, height);
-    for (var y = 0; y < height; y += 1) {
-      for (var x = 0; x < width; x += 1) {
-        gif.setPixel(x, y, getPixel(x, y) );
-      }
-    }
-
-    var b = byteArrayOutputStream();
-    gif.write(b);
-
-    var base64 = base64EncodeOutputStream();
-    var bytes = b.toByteArray();
-    for (var i = 0; i < bytes.length; i += 1) {
-      base64.writeByte(bytes[i]);
-    }
-    base64.flush();
-
-    return 'data:image/gif;base64,' + base64;
-  };
-
-  //---------------------------------------------------------------------
-  // returns qrcode function.
-
-  return qrcode;
-}();
-
-// multibyte support
-!function() {
-
-  qrcode.stringToBytesFuncs['UTF-8'] = function(s) {
-    // http://stackoverflow.com/questions/18729405/how-to-convert-utf8-string-to-byte-array
-    function toUTF8Array(str) {
-      var utf8 = [];
-      for (var i=0; i < str.length; i++) {
-        var charcode = str.charCodeAt(i);
-        if (charcode < 0x80) utf8.push(charcode);
-        else if (charcode < 0x800) {
-          utf8.push(0xc0 | (charcode >> 6),
-              0x80 | (charcode & 0x3f));
-        }
-        else if (charcode < 0xd800 || charcode >= 0xe000) {
-          utf8.push(0xe0 | (charcode >> 12),
-              0x80 | ((charcode>>6) & 0x3f),
-              0x80 | (charcode & 0x3f));
-        }
-        // surrogate pair
-        else {
-          i++;
-          // UTF-16 encodes 0x10000-0x10FFFF by
-          // subtracting 0x10000 and splitting the
-          // 20 bits of 0x0-0xFFFFF into two halves
-          charcode = 0x10000 + (((charcode & 0x3ff)<<10)
-            | (str.charCodeAt(i) & 0x3ff));
-          utf8.push(0xf0 | (charcode >>18),
-              0x80 | ((charcode>>12) & 0x3f),
-              0x80 | ((charcode>>6) & 0x3f),
-              0x80 | (charcode & 0x3f));
-        }
-      }
-      return utf8;
-    }
-    return toUTF8Array(s);
-  };
-
-}();
-
-(function (factory) {
-  if (typeof define === 'function' && define.amd) {
-      define([], factory);
-  } else if (typeof exports === 'object') {
-      module.exports = factory();
-  }
-}(function () {
-    return qrcode;
-}));
+window.MUSEUM_CONFIG = {
+  members: ["Adam", "Ramez", "Nael"]
+};
 </script>
 <script>
 "use strict";
 
 const settings = window.MUSEUM_CONFIG ?? {};
-const mobileNav = window.matchMedia("(max-width: 52rem)");
+const mobileNav = window.matchMedia("(max-width: 65rem)");
 const menu = document.querySelector(".menu-button");
 const nav = document.querySelector(".site-nav");
 
@@ -3324,6 +1182,7 @@ function enableTabs(tablist) {
       tab.tabIndex = selected ? 0 : -1;
       panels[tabIndex].hidden = !selected;
     });
+    tablist.dispatchEvent(new CustomEvent("museum:tab", { bubbles: true, detail: panels[index].id }));
     if (moveFocus) tabs[index].focus();
   }
 
@@ -3390,48 +1249,536 @@ function enableMagazine() {
   controls.hidden = false;
 }
 
-function enableQuiz() {
-  const quizLink = document.getElementById("quiz-link");
-  if (!quizLink || !settings.kahootUrl) return;
-
-  let url;
-  try {
-    url = new URL(settings.kahootUrl);
-  } catch {
-    return;
-  }
-  const officialHost = /(^|\.)kahoot\.(it|com)$/.test(url.hostname);
-  if (url.protocol !== "https:" || !officialHost || url.username || url.password) return;
-
-  quizLink.href = url.href;
-  quizLink.hidden = false;
-  const status = document.getElementById("quiz-status");
-  const placeholder = document.getElementById("qr-empty");
-  try {
-    const code = window.qrcode(0, "M");
-    code.addData(url.href);
-    code.make();
-    const qr = document.getElementById("quiz-qr");
-    qr.src = code.createDataURL(8, 32);
-    qr.hidden = false;
-    placeholder.hidden = true;
-    status.textContent = "Scan the QR code or open the quiz using the Kahoot link.";
-  } catch {
-    placeholder.textContent = "QR code unavailable";
-    status.textContent = "Use the Kahoot link to open the quiz.";
-  }
-}
-
 document.body.classList.add("enhanced");
 enableNavigation();
 document.querySelectorAll("[data-tablist]").forEach(enableTabs);
 enableMagazine();
-enableQuiz();
 
 document.querySelectorAll("[data-member]").forEach(member => {
   const name = settings.members?.[member.dataset.member]?.trim();
   if (name) member.textContent = name;
 });
+</script>
+<script>
+(() => {
+  "use strict";
+
+  const find = id => document.getElementById(id);
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  // Each pose describes a shift, rise, two foot placements, and two arm angles.
+  const dances = {
+    "era-harlem": {
+      title: "Lindy Hop swing-out", gameTitle: "Lindy Hop", tempo: 120, pair: true, accents: [0, 2, 5, 7],
+      description: "Notice how the partners move closer, open out, and meet again. This slowed study follows the swing-out’s eight-count phrasing.",
+      steps: ["Rock back", "Recover your weight", "Travel toward your partner", "Finish the first triple step", "Step through", "Turn to face", "Begin the second triple step", "Return to an open position"],
+      poses: [[38,0,-10,16,205,-24],[30,6,-6,0,208,-22],[5,1,12,-8,192,-3],[-19,8,15,0,168,0],[-29,3,-17,9,196,-13],[-5,8,-4,18,201,-24],[20,2,-19,10,211,-18],[36,7,10,20,201,-15]],
+      source: ["Watch dancers from the Frankie Manning Foundation archive", "https://www.frankiemanningfoundation.org/frankie-photos-and-videos"]
+    },
+    "era-hamburg": {
+      title: "Swing-style weight shifts", tempo: 108, pair: true, accents: [0, 2],
+      description: "Try following the side-to-side pulse. This is an illustration of swing-style movement in the period. PBS discusses the historical Swing Youth in the film gallery.",
+      steps: ["Shift weight inward", "Bring the free foot in", "Shift weight outward", "Recover into the next count"],
+      poses: [[-13,2,17,-5,217,6],[-10,10,7,7,224,-18],[19,2,-18,12,208,-21],[11,9,-7,0,203,4]]
+    },
+    "era-washington": {
+      title: "Six-count jitterbug basic", gameTitle: "Jitterbug", tempo: 132, pair: true, accents: [0, 2, 4],
+      description: "Watch the weight change on the rock step, followed by two traveling triple steps. This studio pattern uses six counts.",
+      steps: ["Rock back", "Recover", "Start the first triple step", "Finish the first triple step", "Start the second triple step", "Finish the second triple step"],
+      poses: [[16,0,-6,19,229,-21],[5,8,1,7,216,0],[-12,1,16,-9,195,-7],[-17,8,8,8,192,-24],[13,2,-20,15,207,2],[20,8,-5,10,222,-15]],
+      source: ["Watch British Pathé’s 1943 jitterbug newsreel", "https://www.youtube.com/watch?v=t8pXDfX2giU"]
+    },
+    "era-exchange": {
+      title: "Ballet port de bras", gameTitle: "Ballet waltz study", tempo: 105, pair: false, accents: [0, 3],
+      description: "Port de bras describes the carriage and movement of the arms. Follow the arms from low to open, overhead, and down in this six-count waltz study.",
+      steps: ["Soften the knees, arms low", "Round the arms forward", "Open the arms wide", "Carry the arms overhead", "Open the arms again", "Lower the arms"],
+      poses: [[0,-6,-4,4,115,65],[1,-1,-4,4,51,129],[0,6,-17,13,181,-3],[0,15,-3,4,263,-83],[-3,8,5,17,183,-15],[0,0,-4,4,137,42]],
+      source: ["Explore the Digital Library of Georgia’s Bolshoi newsfilm", "https://dlg.usg.edu/record/ugabma_wsbn_wsbn36035"]
+    },
+    "era-revival": {
+      title: "Shim Sham rhythm study", gameTitle: "Shim Sham", tempo: 116, pair: false, accents: [0, 3, 4, 7],
+      description: "Watch the tap, shift, and pause. This short movement study is inspired by the solo jazz routine Frankie Manning helped bring to swing dancers.",
+      steps: ["Tap forward", "Shift weight", "Bring the foot back", "Mark the accent", "Tap on the other side", "Shift weight again", "Draw the foot in", "Pause on the accent"],
+      poses: [[-12,2,-25,7,198,-8],[-6,8,-11,0,216,22],[3,3,-6,5,173,-32],[9,13,6,-10,259,-39],[17,2,-4,25,205,2],[6,9,1,16,150,36],[-3,4,-5,9,178,-25],[-8,12,5,-7,223,-62]],
+      source: ["Watch the Shim Sham performed by Frankie and Chazz", "https://www.youtube.com/watch?v=IFH3waV26Uo"]
+    }
+  };
+
+  function drawStage(canvas, key, count) {
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    const dance = dances[key];
+    const index = Math.floor(count) % dance.poses.length;
+    const fraction = count - Math.floor(count);
+    const smooth = fraction * fraction * (3 - 2 * fraction);
+    const pose = dance.poses[index].map((value, axis) =>
+      value + (dance.poses[(index + 1) % dance.poses.length][axis] - value) * smooth);
+
+    function line(points, width, color) {
+      ctx.beginPath();
+      ctx.moveTo(...points[0]);
+      for (const point of points.slice(1)) ctx.lineTo(...point);
+      ctx.lineWidth = width;
+      ctx.strokeStyle = color;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.stroke();
+    }
+
+    function ellipse(x, y, width, height, color) {
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.ellipse(x, y, width, height, 0, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.fillStyle = "#29251e";
+    ctx.fillRect(0, 0, 680, 330);
+    const spotlight = ctx.createRadialGradient(340, 130, 15, 340, 150, 350);
+    spotlight.addColorStop(0, "#635140");
+    spotlight.addColorStop(1, "#2b2720");
+    ctx.fillStyle = spotlight;
+    ctx.fillRect(0, 0, 680, 297);
+    ctx.strokeStyle = "#806c53";
+    ctx.lineWidth = 1;
+    ctx.strokeRect(26, 22, 628, 273);
+    for (const start of [78, 602]) line([[start, 48], [start, 279]], 1, "#79674d");
+    line([[27, 278], [653, 278]], 1, "#a78d6d");
+
+    function person(base, mirror, suit, skin, outfit) {
+      const [shift, rise, leftFoot, rightFoot, leftArm, rightArm] = pose;
+      ctx.save();
+      ctx.translate(base, 0);
+      ctx.scale(mirror, 1);
+      const x = shift;
+      const hipY = 177 - rise;
+      const shoulderY = hipY - 58;
+      const footY = 270;
+      ellipse(x, 273, 45, 5, "#211d19");
+      for (const [side, onBeat, angle] of [[-1, leftFoot, leftArm], [1, rightFoot, rightArm]]) {
+        const footX = x + side * 21 + onBeat;
+        const kneeX = (footX + x) / 2 + side * 12;
+        line([[x + side * 10, hipY], [kneeX, (footY + hipY) / 2], [footX, footY]], 12, suit);
+        line([[footX - 3, footY], [footX + side * 11, footY]], 8, "#181613");
+        const cx = x + side * 15;
+        const theta = angle * Math.PI / 180;
+        const wrist = [cx + Math.cos(theta) * 71, shoulderY + Math.sin(theta) * 71];
+        const elbow = [cx + Math.cos(theta + side * 0.3) * 33, shoulderY + Math.sin(theta + side * 0.3) * 33];
+        line([[cx, shoulderY], elbow, wrist], 10, suit);
+        ellipse(wrist[0], wrist[1], 5, 5, skin);
+      }
+      line([[x, shoulderY + 1], [x, hipY - 4]], 31, suit);
+      if (outfit) {
+        ctx.fillStyle = suit;
+        ctx.beginPath();
+        ctx.moveTo(x - 14, hipY - 8);
+        ctx.lineTo(x + 14, hipY - 8);
+        ctx.lineTo(x + 44, hipY + 19);
+        ctx.quadraticCurveTo(x, hipY + 39, x - 44, hipY + 19);
+        ctx.closePath();
+        ctx.fill();
+      }
+      ellipse(x, shoulderY - 20, 14, 17, skin);
+      ellipse(x - 3, shoulderY - 31, 12, 7, "#2b211b");
+      ctx.restore();
+    }
+
+    if (dance.pair) {
+      person(255, -1, "#be7656", "#d5a278", false);
+      person(425, 1, "#d6af75", "#a87854", true);
+    } else {
+      person(340, 1, key === "era-exchange" ? "#d8ad80" : "#c17a55", "#c99b78", key === "era-exchange");
+    }
+  }
+
+  function enablePreview() {
+    const preview = find("dance-preview");
+    if (!preview) return;
+    const canvas = find("preview-stage");
+    const play = find("preview-play");
+    const source = find("preview-source");
+    let key = "era-harlem";
+    let position = 0;
+    let lastCount = -1;
+    let frame = 0;
+    let started = 0;
+
+    function paint() {
+      const dance = dances[key];
+      const count = Math.floor(position);
+      drawStage(canvas, key, reduceMotion.matches ? count : position);
+      if (count === lastCount) return;
+      lastCount = count;
+      find("preview-count").textContent = `Count ${count + 1} of ${dance.steps.length}`;
+      find("preview-step").textContent = dance.steps[count];
+    }
+
+    function pause() {
+      if (!frame) return;
+      cancelAnimationFrame(frame);
+      frame = 0;
+      play.textContent = "Play dance";
+      find("preview-step").setAttribute("aria-live", "polite");
+    }
+
+    function animate(now) {
+      const dance = dances[key];
+      position = ((now - started) * dance.tempo / 84000) % dance.steps.length;
+      paint();
+      frame = requestAnimationFrame(animate);
+    }
+
+    function choose(next) {
+      if (!dances[next]) return;
+      pause();
+      key = next;
+      position = 0;
+      lastCount = -1;
+      const dance = dances[key];
+      find("preview-title").textContent = dance.title;
+      find("preview-description").textContent = dance.description;
+      canvas.setAttribute("aria-label", `Illustrated movement study: ${dance.title}`);
+      source.hidden = !dance.source;
+      if (dance.source) [source.textContent, source.href] = dance.source;
+      paint();
+    }
+
+    function step(delta) {
+      pause();
+      const total = dances[key].steps.length;
+      position = (Math.floor(position) + delta + total) % total;
+      paint();
+    }
+
+    play.addEventListener("click", () => {
+      if (frame) return pause();
+      started = performance.now() - position * 84000 / dances[key].tempo;
+      play.textContent = "Pause dance";
+      find("preview-step").setAttribute("aria-live", "off");
+      frame = requestAnimationFrame(animate);
+    });
+    find("preview-back").addEventListener("click", () => step(-1));
+    find("preview-next").addEventListener("click", () => step(1));
+    find("timeline").addEventListener("museum:tab", event => choose(event.detail));
+    document.addEventListener("visibilitychange", () => { if (document.hidden) pause(); });
+    choose(key);
+    preview.hidden = false;
+  }
+
+  function enableFilms() {
+    document.querySelectorAll(".history-clip").forEach(clip => {
+      const player = clip.querySelector(".media-player");
+      clip.addEventListener("toggle", () => {
+        if (!clip.open) {
+          player.replaceChildren();
+          return;
+        }
+        const video = clip.dataset.video;
+        const media = document.createElement(video ? "video" : "iframe");
+        if (video) {
+          media.controls = true;
+          media.preload = "none";
+          media.playsInline = true;
+          media.setAttribute("aria-label", clip.dataset.title);
+        } else {
+          media.title = clip.dataset.title;
+          media.allow = "encrypted-media; fullscreen; picture-in-picture";
+          media.allowFullscreen = true;
+        }
+        media.src = video || clip.dataset.frame;
+        player.replaceChildren(media);
+      });
+    });
+  }
+
+  function enableGame() {
+    const game = find("rhythm-game");
+    if (!game) return;
+    const canvas = find("game-stage");
+    const danceSelect = find("game-dance");
+    const paceSelect = find("game-pace");
+    const lane = find("beat-lane");
+    const beatDisplay = find("game-beat");
+    const scoreDisplay = find("game-score");
+    const feedback = find("game-feedback");
+    const action = find("game-start");
+    const hit = find("game-tap");
+    const soundControl = find("game-sound");
+    const reset = find("game-reset");
+    const beatLead = 3;
+    let state = "ready";
+    let frame = 0;
+    let start = 0;
+    let elapsed = 0;
+    let period = 0;
+    let lastBeat = -1;
+    let nextAudioBeat = 0;
+    let notes = [];
+    let score = 0;
+    let audio;
+    let volume;
+    let sound = true;
+
+    for (const key of ["era-harlem", "era-washington", "era-exchange", "era-revival"]) {
+      const dance = dances[key];
+      const option = document.createElement("option");
+      option.value = key;
+      option.textContent = dance.gameTitle || dance.title;
+      danceSelect.append(option);
+    }
+
+    function updateButtons() {
+      action.textContent = { ready: "Start round", playing: "Pause round", paused: "Resume round", finished: "Play again" }[state];
+      hit.setAttribute("aria-disabled", String(state !== "playing"));
+      danceSelect.disabled = paceSelect.disabled = state === "playing" || state === "paused";
+      soundControl.textContent = sound ? "Sound on" : "Sound off";
+      soundControl.setAttribute("aria-pressed", String(sound));
+      reset.hidden = state === "ready";
+      if (volume) volume.gain.value = sound && state === "playing" ? 0.17 : 0;
+    }
+
+    function prepareAudio() {
+      if (!sound) return;
+      const Context = window.AudioContext || window.webkitAudioContext;
+      if (!Context) return;
+      try {
+        if (!audio) {
+          audio = new Context();
+          volume = audio.createGain();
+          volume.connect(audio.destination);
+        }
+        if (audio.state === "suspended") audio.resume().catch(() => {});
+      } catch {
+        // The visual count still works when a browser has no audio output.
+      }
+    }
+
+    function tone(at, frequency, strength, duration = 0.11) {
+      const oscillator = audio.createOscillator();
+      const envelope = audio.createGain();
+      oscillator.type = "sine";
+      oscillator.frequency.setValueAtTime(frequency, at);
+      oscillator.frequency.exponentialRampToValueAtTime(frequency * 0.72, at + duration);
+      envelope.gain.setValueAtTime(strength, at);
+      envelope.gain.exponentialRampToValueAtTime(0.001, at + duration);
+      oscillator.connect(envelope).connect(volume);
+      oscillator.start(at);
+      oscillator.stop(at + duration);
+    }
+
+    function setDance() {
+      if (state === "playing" || state === "paused") return;
+      const dance = dances[danceSelect.value];
+      find("game-meter").textContent = `${Math.round(dance.tempo * Number(paceSelect.value))} BPM · ${dance.steps.length}-count study`;
+      canvas.setAttribute("aria-label", `Animated rhythm study: ${dance.title}`);
+      drawStage(canvas, danceSelect.value, 0);
+      beatDisplay.textContent = "Ready";
+      scoreDisplay.textContent = "Score 0";
+      feedback.textContent = "Start a round when you’re ready.";
+      notes.forEach(note => note.dot.remove());
+      notes = [];
+      state = "ready";
+      updateButtons();
+    }
+
+    function begin() {
+      const dance = dances[danceSelect.value];
+      period = 60000 / (dance.tempo * Number(paceSelect.value));
+      score = elapsed = nextAudioBeat = 0;
+      lastBeat = -1;
+      notes.forEach(note => note.dot.remove());
+      notes = [];
+      for (let i = 0; i < dance.steps.length * 2; i++) {
+        if (!dance.accents.includes(i % dance.steps.length)) continue;
+        const dot = document.createElement("span");
+        dot.className = "beat-note";
+        lane.append(dot);
+        notes.push({ time: (i + beatLead) * period, dot, done: false });
+      }
+      scoreDisplay.textContent = "Score 0";
+      feedback.textContent = "Listen for the count-in.";
+      resume();
+    }
+
+    function pause() {
+      if (state !== "playing") return;
+      elapsed = performance.now() - start;
+      cancelAnimationFrame(frame);
+      state = "paused";
+      beatDisplay.textContent = "Paused";
+      feedback.textContent = "Resume when you’re ready.";
+      updateButtons();
+    }
+
+    function resume() {
+      prepareAudio();
+      start = performance.now() - elapsed;
+      nextAudioBeat = Math.max(nextAudioBeat, Math.ceil(elapsed / period));
+      state = "playing";
+      updateButtons();
+      hit.focus({ preventScroll: true });
+      frame = requestAnimationFrame(tick);
+    }
+
+    function tick(now) {
+      const dance = dances[danceSelect.value];
+      const time = Math.max(0, now - start);
+      const count = Math.floor(time / period);
+      const total = beatLead + dance.steps.length * 2;
+      if (count >= total) {
+        state = "finished";
+        beatDisplay.textContent = "Round finished";
+        feedback.textContent = `You hit ${score} of ${notes.length} accented beats.`;
+        updateButtons();
+        return;
+      }
+      const danceCount = Math.max(0, time / period - beatLead);
+      if (!reduceMotion.matches || count !== lastBeat) {
+        drawStage(canvas, danceSelect.value, reduceMotion.matches ? Math.floor(danceCount) : danceCount);
+      }
+      lastBeat = count;
+      while (nextAudioBeat < total && nextAudioBeat * period <= time + 85) {
+        const offset = nextAudioBeat * period - time;
+        if (audio?.state === "running" && sound && offset > -60) {
+          const index = nextAudioBeat - beatLead;
+          const accent = index >= 0 && dance.accents.includes(index % dance.steps.length);
+          const pitch = danceSelect.value === "era-exchange" ? [220, 277, 329][nextAudioBeat % 3] : 160;
+          tone(audio.currentTime + Math.max(0, offset) / 1000, accent ? pitch : pitch * 1.8, accent ? 0.75 : 0.28);
+        }
+        nextAudioBeat++;
+      }
+      const windowMs = period * 0.27;
+      let canHit = false;
+      for (const note of notes) {
+        const remaining = note.time - time;
+        if (remaining < -windowMs) note.done = true;
+        canHit ||= !note.done && Math.abs(remaining) <= windowMs;
+        note.dot.hidden = note.done || remaining > period * 3;
+        if (!note.dot.hidden) note.dot.style.left = `${50 + remaining / (period * 3) * 45}%`;
+      }
+      beatDisplay.textContent = count < beatLead ? `Starts in ${beatLead - count}` : canHit ? "Tap now" : `Beat ${(count - beatLead) % dance.steps.length + 1} of ${dance.steps.length}`;
+      frame = requestAnimationFrame(tick);
+    }
+
+    function tap() {
+      if (state !== "playing") return;
+      const time = performance.now() - start;
+      const note = notes.find(item => !item.done && Math.abs(item.time - time) <= period * 0.27);
+      if (!note) {
+        feedback.textContent = time < beatLead * period - period * 0.27 ? "Wait for the first accent." : "Off beat. Watch for the next accent.";
+        return;
+      }
+      note.done = true;
+      scoreDisplay.textContent = `Score ${++score}`;
+      feedback.textContent = `On beat. ${score} hit${score === 1 ? "" : "s"}.`;
+    }
+
+    action.addEventListener("click", () => {
+      if (state === "playing") pause();
+      else if (state === "paused") resume();
+      else begin();
+    });
+    hit.addEventListener("click", tap);
+    game.addEventListener("keydown", event => {
+      if (event.key.toLowerCase() !== "d" || event.repeat || event.target.tagName === "SELECT" || state !== "playing") return;
+      event.preventDefault();
+      tap();
+    });
+    soundControl.addEventListener("click", () => {
+      sound = !sound;
+      if (sound) prepareAudio();
+      updateButtons();
+    });
+    reset.addEventListener("click", () => {
+      pause();
+      state = "ready";
+      setDance();
+      action.focus();
+    });
+    danceSelect.addEventListener("change", setDance);
+    paceSelect.addEventListener("change", setDance);
+    document.addEventListener("visibilitychange", () => { if (document.hidden) pause(); });
+    setDance();
+    game.hidden = false;
+  }
+
+  const questions = [
+    ["Where did Lindy Hop take shape?", ["Harlem, New York", "Hamburg, Germany", "Moscow, Soviet Union"], 0, "Black dancers in Harlem developed Lindy Hop in conversation with jazz music."],
+    ["Why did Nazi authorities target the Swing Youth?", ["They were touring with a ballet company", "The authorities saw their independence and love of swing as a threat", "They were printing square dance instructions"], 1, "The Nazi regime treated youth culture outside its control as suspicious."],
+    ["What does Esther Bubley’s 1943 photograph show?", ["An American ballet opening in Moscow", "A meeting of Hamburg’s Swing Youth", "People jitterbugging at a Washington, D.C., Elks Club"], 2, "The photograph records a social dance in wartime Washington."],
+    ["Why did the U.S. and Soviet governments sponsor ballet tours?", ["To build goodwill and show artistic prestige", "To create one required style of ballet", "To start a radio program for dancers"], 0, "The exchanges gave each country a stage abroad and gave audiences direct contact with visiting artists."],
+    ["What did Sets in Order offer its readers?", ["A guide to swing records in Hamburg", "Square and round dance instructions and club news", "A program for the Bolshoi’s U.S. tour"], 1, "Callers could learn sequences, and dancers could find clubs and events."],
+    ["What question does Then vs. Now ask about dances that spread?", ["Who gets credit for creating and passing them on?", "Which dance should replace every other style?", "Should audiences always learn from print?"], 0, "The exhibit asks how dancers identify and credit the communities from which a dance came."]
+  ];
+
+  function enableQuiz() {
+    const quiz = find("museum-quiz");
+    if (!quiz) return;
+    const container = find("quiz-questions");
+    const progress = find("quiz-progress");
+    let answered = 0;
+    let correct = 0;
+
+    function update() {
+      progress.textContent = `${answered} of ${questions.length} answered · ${correct} correct`;
+    }
+
+    function render() {
+      answered = correct = 0;
+      container.replaceChildren();
+      questions.forEach(([prompt, choices, right, reason], index) => {
+        const question = document.createElement("fieldset");
+        question.className = "quiz-question";
+        const legend = document.createElement("legend");
+        legend.textContent = `${index + 1}. ${prompt}`;
+        const options = document.createElement("div");
+        options.className = "quiz-options";
+        const response = document.createElement("p");
+        response.className = "quiz-response";
+        response.setAttribute("role", "status");
+        response.setAttribute("aria-live", "polite");
+        let locked = false;
+        const buttons = choices.map((choice, choiceIndex) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.textContent = choice;
+          button.addEventListener("click", () => {
+            if (locked) return;
+            locked = true;
+            const won = choiceIndex === right;
+            answered++;
+            if (won) correct++;
+            buttons.forEach((option, i) => {
+              option.setAttribute("aria-disabled", "true");
+              if (i !== choiceIndex) option.tabIndex = -1;
+            });
+            buttons[right].classList.add("is-correct");
+            if (!won) button.classList.add("is-incorrect");
+            response.textContent = `${won ? "Correct." : "Correct answer: " + choices[right] + "."} ${reason}`;
+            update();
+          });
+          return button;
+        });
+        options.append(...buttons);
+        question.append(legend, options, response);
+        container.append(question);
+      });
+      update();
+    }
+
+    find("quiz-reset").addEventListener("click", () => {
+      render();
+      container.querySelector("button").focus();
+    });
+    render();
+    quiz.hidden = false;
+  }
+
+  enablePreview();
+  enableFilms();
+  enableGame();
+  enableQuiz();
+})();
 </script>
 </body>
 </html>
